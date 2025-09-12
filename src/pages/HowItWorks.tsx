@@ -165,7 +165,7 @@ const HowItWorks = () => {
                 Take the first step towards healing and growth with compassionate AI-powered support.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/">
+                <Link to="/chat">
                   <Button size="lg" className="gap-2">
                     <MessageCircle className="w-5 h-5" />
                     Start Chatting Now

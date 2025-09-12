@@ -27,7 +27,7 @@ const authenticatedItems = [
 ];
 
 export function AppSidebar() {
-  const { state } = useSidebar();
+  const { state, setOpen } = useSidebar();
   const location = useLocation();
   const { user } = useAuth();
   const currentPath = location.pathname;
@@ -37,6 +37,14 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
     isActive ? "bg-primary/10 text-primary font-medium border-r-2 border-primary" : "hover:bg-muted/50";
+
+  // Handle menu item click to collapse sidebar on mobile/small screens
+  const handleMenuClick = () => {
+    // Only auto-collapse if sidebar is expanded and not in desktop mode
+    if (state === "expanded") {
+      setOpen(false);
+    }
+  };
 
   return (
     <Sidebar
@@ -54,7 +62,12 @@ export function AppSidebar() {
               {publicItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className={getNavCls}>
+                    <NavLink 
+                      to={item.url} 
+                      end 
+                      className={getNavCls}
+                      onClick={handleMenuClick}
+                    >
                       <item.icon className="h-4 w-4" />
                       {!isCollapsed && <span>{item.title}</span>}
                     </NavLink>
@@ -76,7 +89,12 @@ export function AppSidebar() {
                 {authenticatedItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <NavLink to={item.url} end className={getNavCls}>
+                      <NavLink 
+                        to={item.url} 
+                        end 
+                        className={getNavCls}
+                        onClick={handleMenuClick}
+                      >
                         <item.icon className="h-4 w-4" />
                         {!isCollapsed && <span>{item.title}</span>}
                       </NavLink>
@@ -97,7 +115,11 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <NavLink to="/auth" className={getNavCls}>
+                  <NavLink 
+                    to="/auth" 
+                    className={getNavCls}
+                    onClick={handleMenuClick}
+                  >
                     {user ? <User className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
                     {!isCollapsed && <span>{user ? "Profile" : "Sign In"}</span>}
                   </NavLink>

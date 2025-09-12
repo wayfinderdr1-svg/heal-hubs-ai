@@ -105,7 +105,7 @@ const Support = () => {
                         Our AI assistant is available 24/7 to provide immediate support, guidance, and 
                         evidence-based recovery strategies tailored to your needs.
                       </p>
-                      <Link to="/">
+                      <Link to="/chat">
                         <Button className="gap-2">
                           <MessageCircle className="w-4 h-4" />
                           Start Chatting Now
