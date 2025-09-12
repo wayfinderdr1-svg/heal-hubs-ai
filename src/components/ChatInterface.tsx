@@ -119,14 +119,14 @@ const ChatInterface = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-12 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <div className="text-center mb-6 space-y-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
               Start Your Conversation
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg text-muted-foreground">
               Connect with our AI support system for personalized recovery guidance
             </p>
           </div>
