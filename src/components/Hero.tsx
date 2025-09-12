@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-support.jpg";
 
 const Hero = () => {
@@ -20,13 +21,17 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="gap-2">
-                <MessageCircle className="w-5 h-5" />
-                Start Recovery Chat
-              </Button>
-              <Button variant="supportive" size="lg">
-                Learn More
-              </Button>
+              <Link to="/chat">
+                <Button variant="hero" size="lg" className="gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  Start Recovery Chat
+                </Button>
+              </Link>
+              <Link to="/how-it-works">
+                <Button variant="supportive" size="lg">
+                  Learn More
+                </Button>
+              </Link>
             </div>
             
             <div className="grid grid-cols-3 gap-6 pt-8">
