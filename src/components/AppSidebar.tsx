@@ -1,0 +1,112 @@
+import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User } from "lucide-react";
+import { NavLink, useLocation } from "react-router-dom";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "@/components/ui/sidebar";
+import { useAuth } from "@/hooks/useAuth";
+
+const publicItems = [
+  { title: "Home", url: "/", icon: Home },
+  { title: "About", url: "/about", icon: Info },
+  { title: "How It Works", url: "/how-it-works", icon: HelpCircle },
+  { title: "Support", url: "/support", icon: HelpCircle },
+];
+
+const authenticatedItems = [
+  { title: "Recovery Chat", url: "/chat", icon: MessageCircle },
+  { title: "Daily Check-in", url: "/daily-checkin", icon: Calendar },
+  { title: "Check-in History", url: "/checkin-history", icon: History },
+];
+
+export function AppSidebar() {
+  const { state } = useSidebar();
+  const location = useLocation();
+  const { user } = useAuth();
+  const currentPath = location.pathname;
+  
+  const isCollapsed = state === "collapsed";
+
+  const isActive = (path: string) => currentPath === path;
+  const getNavCls = ({ isActive }: { isActive: boolean }) =>
+    isActive ? "bg-primary/10 text-primary font-medium border-r-2 border-primary" : "hover:bg-muted/50";
+
+  return (
+    <Sidebar
+      className={isCollapsed ? "w-14" : "w-64"}
+      collapsible="icon"
+    >
+      <SidebarContent>
+        {/* Main Navigation */}
+        <SidebarGroup>
+          <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+            Navigation
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {publicItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <NavLink to={item.url} end className={getNavCls}>
+                      <item.icon className="h-4 w-4" />
+                      {!isCollapsed && <span>{item.title}</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* Recovery Tools - Only show if authenticated */}
+        {user && (
+          <SidebarGroup>
+            <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+              Recovery Tools
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {authenticatedItems.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <NavLink to={item.url} end className={getNavCls}>
+                        <item.icon className="h-4 w-4" />
+                        {!isCollapsed && <span>{item.title}</span>}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
+
+        {/* Account */}
+        <SidebarGroup>
+          <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+            Account
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink to="/auth" className={getNavCls}>
+                    {user ? <User className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
+                    {!isCollapsed && <span>{user ? "Profile" : "Sign In"}</span>}
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+  );
+}
