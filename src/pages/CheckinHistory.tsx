@@ -8,7 +8,6 @@ import { CalendarDays, TrendingUp, Plus, Heart, Zap, Brain, Moon, Dumbbell } fro
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { format, subDays, subWeeks, subMonths } from "date-fns";
 
@@ -122,8 +121,7 @@ const CheckinHistory = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
-        <main className="pt-20 pb-12">
+        <main className="pb-12">
           <div className="container mx-auto px-4">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
@@ -138,9 +136,8 @@ const CheckinHistory = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
-      <main className="pt-20 pb-12">
+      <main className="pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-8">

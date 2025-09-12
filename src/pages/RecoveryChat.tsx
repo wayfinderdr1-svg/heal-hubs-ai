@@ -1,13 +1,11 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatInterface from "@/components/ChatInterface";
 
 const RecoveryChat = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
-      <main className="pt-20 pb-12">
+      <main className="pb-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

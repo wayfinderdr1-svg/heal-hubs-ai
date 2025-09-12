@@ -11,7 +11,6 @@ import { CalendarDays, Heart, Brain, Zap, Moon, Dumbbell, Target, Sparkles } fro
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const DailyCheckin = () => {
@@ -135,9 +134,8 @@ const DailyCheckin = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
-      <main className="pt-20 pb-12">
+      <main className="pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">

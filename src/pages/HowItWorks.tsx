@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MessageCircle, Brain, Shield, Clock, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,9 +7,8 @@ import { Link } from "react-router-dom";
 const HowItWorks = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
-      <main className="pt-20 pb-12">
+      <main className="pb-12">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <section className="text-center mb-16">

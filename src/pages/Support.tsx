@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Phone, Mail, MessageCircle, Clock, Heart, AlertCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,9 +8,8 @@ import { Link } from "react-router-dom";
 const Support = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
-      <main className="pt-20 pb-12">
+      <main className="pb-12">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <section className="text-center mb-16">
