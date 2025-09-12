@@ -30,7 +30,7 @@ const App = () => (
               {/* Global sidebar trigger in header */}
               <header className="fixed top-0 left-0 right-0 z-50 h-12 flex items-center bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
                 <SidebarTrigger className="ml-2" />
-                <h1 className="ml-4 font-semibold text-lg">HealHubs AI</h1>
+                <h1 className="ml-4 font-semibold text-lg">WayFinder</h1>
               </header>
 
               <AppSidebar />
