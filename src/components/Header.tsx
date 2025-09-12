@@ -26,15 +26,15 @@ const Header = () => {
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
             About
-          </a>
-          <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
             How It Works
-          </a>
-          <a href="#support" className="text-muted-foreground hover:text-foreground transition-colors">
+          </Link>
+          <Link to="/support" className="text-muted-foreground hover:text-foreground transition-colors">
             Support
-          </a>
+          </Link>
           <Button 
             variant="outline" 
             onClick={handleAuthAction}

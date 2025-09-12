@@ -1,0 +1,260 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Phone, Mail, MessageCircle, Clock, Heart, AlertCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Link } from "react-router-dom";
+
+const Support = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="pt-20 pb-12">
+        <div className="container mx-auto px-4">
+          {/* Hero Section */}
+          <section className="text-center mb-16">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                Support & Resources
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                We're here to help you every step of the way. Find the support you need, when you need it.
+              </p>
+            </div>
+          </section>
+
+          {/* Emergency Resources */}
+          <section className="mb-16">
+            <Alert className="border-destructive/20 bg-destructive/5 mb-8">
+              <AlertCircle className="h-4 w-4 text-destructive" />
+              <AlertDescription className="text-destructive font-medium">
+                If you're experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
+              </AlertDescription>
+            </Alert>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Crisis Resources</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-foreground">
+                    <Phone className="w-5 h-5 text-primary" />
+                    Crisis Text Line
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    24/7 crisis support via text message
+                  </p>
+                  <p className="font-semibold text-foreground mb-2">Text HOME to 741741</p>
+                  <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-foreground">
+                    <Phone className="w-5 h-5 text-primary" />
+                    National Suicide Prevention
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    24/7 suicide prevention support
+                  </p>
+                  <p className="font-semibold text-foreground mb-2">Call or text 988</p>
+                  <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-foreground">
+                    <Phone className="w-5 h-5 text-primary" />
+                    SAMHSA Helpline
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Treatment referral and information
+                  </p>
+                  <p className="font-semibold text-foreground mb-2">1-800-662-4357</p>
+                  <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
+                </CardContent>
+              </Card>
+
+            </div>
+          </section>
+
+          {/* Support Options */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">How We Support You</h2>
+            <div className="max-w-5xl mx-auto space-y-8">
+
+              <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-accent/20">
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <MessageCircle className="w-8 h-8 text-primary" />
+                        <h3 className="text-2xl font-semibold text-foreground">AI Recovery Chat</h3>
+                      </div>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                        Our AI assistant is available 24/7 to provide immediate support, guidance, and 
+                        evidence-based recovery strategies tailored to your needs.
+                      </p>
+                      <Link to="/">
+                        <Button className="gap-2">
+                          <MessageCircle className="w-4 h-4" />
+                          Start Chatting Now
+                        </Button>
+                      </Link>
+                    </div>
+                    <div className="bg-background/50 rounded-lg p-6">
+                      <h4 className="font-semibold text-foreground mb-3">Available Support:</h4>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Crisis intervention techniques</li>
+                        <li>• Coping strategy development</li>
+                        <li>• Relapse prevention planning</li>
+                        <li>• Motivational support</li>
+                        <li>• Resource recommendations</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardContent className="p-8">
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div className="bg-background/50 rounded-lg p-6">
+                      <h4 className="font-semibold text-foreground mb-3">What We Provide:</h4>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Treatment center directories</li>
+                        <li>• Support group listings</li>
+                        <li>• Educational resources</li>
+                        <li>• Recovery tools and worksheets</li>
+                        <li>• Professional referrals</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <Heart className="w-8 h-8 text-primary" />
+                        <h3 className="text-2xl font-semibold text-foreground">Resource Library</h3>
+                      </div>
+                      <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                        Access our comprehensive library of recovery resources, including treatment 
+                        options, support groups, and educational materials.
+                      </p>
+                      <Button variant="outline">
+                        Browse Resources
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Get in Touch</h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-foreground">
+                    <Mail className="w-5 h-5 text-primary" />
+                    Email Support
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    For non-urgent questions, feedback, or technical support
+                  </p>
+                  <p className="font-semibold text-foreground">support@wayfinder.com</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    We typically respond within 24 hours
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-foreground">
+                    <Clock className="w-5 h-5 text-primary" />
+                    Response Times
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-medium text-foreground">AI Chat Support</p>
+                      <p className="text-sm text-muted-foreground">Instant response, 24/7</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Email Support</p>
+                      <p className="text-sm text-muted-foreground">Within 24 hours</p>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Crisis Resources</p>
+                      <p className="text-sm text-muted-foreground">Immediate, 24/7</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Frequently Asked Questions</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+              
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Is WayFinder a replacement for professional therapy?</h3>
+                  <p className="text-muted-foreground">
+                    No, WayFinder is designed to complement professional treatment, not replace it. While our AI provides 
+                    evidence-based support and guidance, we always recommend working with licensed professionals for 
+                    comprehensive care.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">How secure are my conversations?</h3>
+                  <p className="text-muted-foreground">
+                    All conversations are encrypted and completely confidential. We never share your personal information 
+                    or chat history with third parties. Your privacy and security are our top priorities.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card/50 backdrop-blur border-accent/20">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">What if I'm having a crisis?</h3>
+                  <p className="text-muted-foreground">
+                    If you're experiencing a mental health emergency, please contact 911 or your local emergency services 
+                    immediately. For non-emergency crisis support, use the crisis resources listed above.
+                  </p>
+                </CardContent>
+              </Card>
+
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Support;
