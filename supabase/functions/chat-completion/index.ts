@@ -1,11 +1,15 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+console.log('Chat completion function loaded successfully')
+
 serve(async (req) => {
+  console.log(`${req.method} ${req.url}`)
+  
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -13,6 +17,7 @@ serve(async (req) => {
 
   try {
     const { message } = await req.json()
+    console.log('Received message:', message)
     
     if (!message) {
       return new Response(
@@ -22,14 +27,17 @@ serve(async (req) => {
     }
 
     const openaiApiKey = Deno.env.get('OPENAI_API_KEY')
+    console.log('OpenAI API Key available:', !!openaiApiKey)
     
     if (!openaiApiKey) {
+      console.error('OpenAI API key not found in environment')
       return new Response(
         JSON.stringify({ error: 'OpenAI API key not configured' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
+    console.log('Making request to OpenAI...')
     const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -63,11 +71,17 @@ serve(async (req) => {
       }),
     })
 
+    console.log('OpenAI response status:', openaiResponse.status)
+
     if (!openaiResponse.ok) {
-      throw new Error(`OpenAI API error: ${openaiResponse.status}`)
+      const errorText = await openaiResponse.text()
+      console.error('OpenAI API error:', openaiResponse.status, errorText)
+      throw new Error(`OpenAI API error: ${openaiResponse.status} - ${errorText}`)
     }
 
     const data = await openaiResponse.json()
+    console.log('OpenAI response received successfully')
+    
     const reply = data.choices[0]?.message?.content || 'I apologize, but I encountered an error processing your message. Please try again.'
 
     return new Response(
@@ -77,7 +91,11 @@ serve(async (req) => {
   } catch (error) {
     console.error('Error in chat-completion function:', error)
     return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
+      JSON.stringify({ 
+        error: 'Internal server error', 
+        details: error.message,
+        timestamp: new Date().toISOString()
+      }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   }

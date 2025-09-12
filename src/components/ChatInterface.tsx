@@ -44,12 +44,17 @@ const ChatInterface = () => {
     setIsLoading(true);
 
     try {
+      console.log('Attempting to call chat-completion function...');
+      
       // Call the Supabase Edge Function for OpenAI integration
       const { data, error } = await supabase.functions.invoke('chat-completion', {
         body: { message: userMessageContent }
       });
 
+      console.log('Function response:', { data, error });
+
       if (error) {
+        console.error('Supabase function error:', error);
         throw error;
       }
 
