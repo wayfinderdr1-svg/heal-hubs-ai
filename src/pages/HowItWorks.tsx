@@ -164,16 +164,11 @@ const HowItWorks = () => {
               <p className="text-lg text-muted-foreground mb-8">
                 Take the first step towards healing and growth with compassionate AI-powered support.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Link to="/chat">
                   <Button size="lg" className="gap-2">
                     <MessageCircle className="w-5 h-5" />
                     Start Chatting Now
-                  </Button>
-                </Link>
-                <Link to="/about">
-                  <Button variant="outline" size="lg">
-                    Learn More About Us
                   </Button>
                 </Link>
               </div>
