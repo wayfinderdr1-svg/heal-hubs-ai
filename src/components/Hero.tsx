@@ -5,8 +5,8 @@ import heroImage from "@/assets/hero-support.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center bg-gradient-to-br from-calm to-supportive">
-      <div className="container mx-auto px-4 py-20">
+    <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[80vh]">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
