@@ -123,7 +123,7 @@ const ChatInterface = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
 
-          <Card className="h-[600px] flex flex-col bg-card/50 backdrop-blur shadow-2xl border-accent/20">
+          <Card className="h-[400px] flex flex-col bg-card/50 backdrop-blur shadow-2xl border-accent/20">
             <div className="p-6 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
