@@ -15,13 +15,13 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const publicItems = [
   { title: "Home", url: "/", icon: Home },
+  { title: "Recovery Chat", url: "/chat", icon: MessageCircle },
   { title: "About", url: "/about", icon: Info },
   { title: "How It Works", url: "/how-it-works", icon: HelpCircle },
   { title: "Support", url: "/support", icon: HelpCircle },
 ];
 
 const authenticatedItems = [
-  { title: "Recovery Chat", url: "/chat", icon: MessageCircle },
   { title: "Daily Check-in", url: "/daily-checkin", icon: Calendar },
   { title: "Check-in History", url: "/checkin-history", icon: History },
 ];
