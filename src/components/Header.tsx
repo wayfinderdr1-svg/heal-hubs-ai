@@ -35,6 +35,9 @@ const Header = () => {
           <Link to="/support" className="text-muted-foreground hover:text-foreground transition-colors">
             Support
           </Link>
+          <Link to="/chat" className="text-muted-foreground hover:text-foreground transition-colors">
+            Recovery Chat
+          </Link>
           <Button 
             variant="outline" 
             onClick={handleAuthAction}
@@ -44,10 +47,12 @@ const Header = () => {
           </Button>
         </nav>
         
-        <Button variant="hero" className="gap-2">
-          <MessageCircle className="w-4 h-4" />
-          {user ? 'Chat Now' : 'Get Started'}
-        </Button>
+        <Link to="/chat">
+          <Button variant="hero" className="gap-2">
+            <MessageCircle className="w-4 h-4" />
+            {user ? 'Chat Now' : 'Get Started'}
+          </Button>
+        </Link>
       </div>
     </header>
   );
