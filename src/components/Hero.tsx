@@ -19,6 +19,15 @@ const Hero = () => {
                 Available 24/7 when you need it most.
               </p>
             </div>
+
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-4 border border-primary/20">
+              <p className="text-sm font-medium text-foreground mb-1">
+                💡 Sign up to unlock your full recovery toolkit
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Save your daily check-ins, track your progress over time, and build lasting recovery habits with personalized insights.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/chat">
