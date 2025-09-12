@@ -43,6 +43,11 @@ const ChatInterface = () => {
       // Small delay to ensure scroll animation completes first
       const focusTimer = setTimeout(() => {
         inputRef.current?.focus();
+        // Scroll the input field into view
+        inputRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center'
+        });
       }, 500);
       
       return () => clearTimeout(focusTimer);
