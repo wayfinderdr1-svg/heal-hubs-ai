@@ -27,7 +27,7 @@ const authenticatedItems = [
 ];
 
 export function AppSidebar() {
-  const { state, setOpen } = useSidebar();
+  const { state, setOpen, isMobile, setOpenMobile } = useSidebar();
   const location = useLocation();
   const { user } = useAuth();
   const currentPath = location.pathname;
@@ -40,8 +40,11 @@ export function AppSidebar() {
 
   // Handle menu item click to collapse sidebar on mobile/small screens
   const handleMenuClick = () => {
-    // Only auto-collapse if sidebar is expanded and not in desktop mode
-    if (state === "expanded") {
+    if (isMobile) {
+      // Close the mobile sheet
+      setOpenMobile(false);
+    } else {
+      // Collapse/close desktop sidebar
       setOpen(false);
     }
   };
