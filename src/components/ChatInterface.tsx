@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Send, Bot, User } from "lucide-react";
+import { Send, Bot, User, Loader2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 interface Message {
   id: string;
@@ -22,31 +24,58 @@ const ChatInterface = () => {
     }
   ]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSendMessage = () => {
-    if (!inputValue.trim()) return;
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isLoading) return;
 
+    const userMessageContent = inputValue.trim();
+    
     // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
-      content: inputValue,
+      content: userMessageContent,
       sender: 'user',
       timestamp: new Date()
     };
 
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
+    setIsLoading(true);
 
-    // Simulate AI response (this would be replaced with actual OpenAI integration)
-    setTimeout(() => {
+    try {
+      // Call the Supabase Edge Function for OpenAI integration
+      const { data, error } = await supabase.functions.invoke('chat-completion', {
+        body: { message: userMessageContent }
+      });
+
+      if (error) {
+        throw error;
+      }
+
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "Thank you for sharing. I understand this can be challenging. Remember that seeking help is a sign of strength. Would you like to talk about what's been on your mind lately?",
+        content: data.reply,
         sender: 'ai',
         timestamp: new Date()
       };
+      
       setMessages(prev => [...prev, aiMessage]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error getting AI response:', error);
+      toast.error("I'm having trouble connecting right now. Please try again in a moment.");
+      
+      // Add fallback message
+      const fallbackMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: "I apologize, but I'm experiencing some technical difficulties right now. Please try your message again in a moment. If this persists, our support team is available to help.",
+        sender: 'ai',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, fallbackMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -131,9 +160,13 @@ const ChatInterface = () => {
                   onClick={handleSendMessage}
                   variant="default"
                   size="icon"
-                  disabled={!inputValue.trim()}
+                  disabled={!inputValue.trim() || isLoading}
                 >
-                  <Send className="w-4 h-4" />
+                  {isLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-center">
