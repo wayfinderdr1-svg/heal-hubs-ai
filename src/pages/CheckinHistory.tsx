@@ -138,22 +138,22 @@ const CheckinHistory = () => {
     <div className="min-h-screen bg-background">
       
       <main className="pb-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6 sm:mb-8">
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 flex items-center gap-3">
-                  <TrendingUp className="w-8 h-8 text-primary" />
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   Check-In History
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base sm:text-lg text-muted-foreground">
                   Track your progress and identify patterns in your recovery journey
                 </p>
               </div>
               
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                 <Select value={timeRange} onValueChange={setTimeRange}>
-                  <SelectTrigger className="w-32">
+                  <SelectTrigger className="w-full sm:w-32">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -164,7 +164,7 @@ const CheckinHistory = () => {
                   </SelectContent>
                 </Select>
                 
-                <Button onClick={() => navigate("/daily-checkin")} className="gap-2">
+                <Button onClick={() => navigate("/daily-checkin")} className="gap-2 w-full sm:w-auto">
                   <Plus className="w-4 h-4" />
                   New Check-In
                 </Button>
@@ -189,7 +189,7 @@ const CheckinHistory = () => {
               <div className="space-y-6">
                 {/* Average Stats */}
                 {averages && (
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
                     <Card>
                       <CardContent className="pt-6">
                         <div className="flex items-center gap-2 mb-2">
@@ -249,37 +249,41 @@ const CheckinHistory = () => {
                     <CardDescription>Track your emotional wellbeing over time</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ResponsiveContainer width="100%" height={300}>
-                      <LineChart data={chartData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="date" />
-                        <YAxis domain={[1, 10]} />
-                        <Tooltip />
-                        <Line type="monotone" dataKey="mood" stroke="#8884d8" strokeWidth={2} name="Mood" />
-                        <Line type="monotone" dataKey="energy" stroke="#82ca9d" strokeWidth={2} name="Energy" />
-                        <Line type="monotone" dataKey="stress" stroke="#ff7300" strokeWidth={2} name="Stress" />
-                      </LineChart>
-                    </ResponsiveContainer>
+                    <div className="h-48 sm:h-64 md:h-72 lg:h-80">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={chartData}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="date" />
+                          <YAxis domain={[1, 10]} />
+                          <Tooltip />
+                          <Line type="monotone" dataKey="mood" stroke="#8884d8" strokeWidth={2} name="Mood" />
+                          <Line type="monotone" dataKey="energy" stroke="#82ca9d" strokeWidth={2} name="Energy" />
+                          <Line type="monotone" dataKey="stress" stroke="#ff7300" strokeWidth={2} name="Stress" />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
                   </CardContent>
                 </Card>
 
                 {/* Sleep & Exercise */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <Card>
                     <CardHeader>
                       <CardTitle>Sleep Patterns</CardTitle>
                       <CardDescription>Hours of sleep per night</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <ResponsiveContainer width="100%" height={200}>
-                        <BarChart data={chartData}>
-                          <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="date" />
-                          <YAxis />
-                          <Tooltip />
-                          <Bar dataKey="sleep" fill="#3b82f6" />
-                        </BarChart>
-                      </ResponsiveContainer>
+                      <div className="h-36 sm:h-44 md:h-48 lg:h-52">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="date" />
+                            <YAxis />
+                            <Tooltip />
+                            <Bar dataKey="sleep" fill="#3b82f6" />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </div>
                     </CardContent>
                   </Card>
 
@@ -289,15 +293,17 @@ const CheckinHistory = () => {
                       <CardDescription>Minutes of exercise per day</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <ResponsiveContainer width="100%" height={200}>
-                        <BarChart data={chartData}>
-                          <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="date" />
-                          <YAxis />
-                          <Tooltip />
-                          <Bar dataKey="exercise" fill="#10b981" />
-                        </BarChart>
-                      </ResponsiveContainer>
+                      <div className="h-36 sm:h-44 md:h-48 lg:h-52">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="date" />
+                            <YAxis />
+                            <Tooltip />
+                            <Bar dataKey="exercise" fill="#10b981" />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
@@ -310,25 +316,27 @@ const CheckinHistory = () => {
                       <CardDescription>Your top focus areas during this period</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <ResponsiveContainer width="100%" height={300}>
-                        <PieChart>
-                          <Pie
-                            data={commonGoals}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
-                            outerRadius={80}
-                            fill="#8884d8"
-                            dataKey="value"
-                          >
-                            {commonGoals.map((entry, index) => (
-                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                          </Pie>
-                          <Tooltip />
-                        </PieChart>
-                      </ResponsiveContainer>
+                      <div className="h-56 sm:h-64 md:h-72 lg:h-80">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart>
+                            <Pie
+                              data={commonGoals}
+                              cx="50%"
+                              cy="50%"
+                              labelLine={false}
+                              label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                              outerRadius={window.innerWidth < 768 ? 60 : 80}
+                              fill="#8884d8"
+                              dataKey="value"
+                            >
+                              {commonGoals.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                              ))}
+                            </Pie>
+                            <Tooltip />
+                          </PieChart>
+                        </ResponsiveContainer>
+                      </div>
                     </CardContent>
                   </Card>
                 )}
