@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -25,6 +25,16 @@ const ChatInterface = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom when new messages are added
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'end' 
+    });
+  }, [messages]);
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -116,12 +126,12 @@ const ChatInterface = () => {
               </div>
             </div>
 
-            <ScrollArea className="flex-1 p-6">
+            <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
               <div className="space-y-6">
-                {messages.map((message) => (
+                {messages.map((message, index) => (
                   <div
                     key={message.id}
-                    className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                    className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
                   >
                     {message.sender === 'ai' && (
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
@@ -130,10 +140,14 @@ const ChatInterface = () => {
                     )}
                     
                     <div
-                      className={`max-w-[80%] p-4 rounded-2xl ${
+                      className={`max-w-[80%] p-4 rounded-2xl transition-all duration-300 ${
                         message.sender === 'user'
                           ? 'bg-primary text-primary-foreground ml-auto'
-                          : 'bg-supportive text-supportive-foreground'
+                          : 'bg-supportive text-supportive-foreground hover:shadow-md'
+                      } ${
+                        message.sender === 'ai' && index === messages.length - 1 && index > 0
+                          ? 'ring-2 ring-primary/20 shadow-lg scale-[1.02]'
+                          : ''
                       }`}
                     >
                       <p className="text-sm leading-relaxed">{message.content}</p>
@@ -149,6 +163,8 @@ const ChatInterface = () => {
                     )}
                   </div>
                 ))}
+                {/* Invisible element to scroll to */}
+                <div ref={messagesEndRef} />
               </div>
             </ScrollArea>
 
