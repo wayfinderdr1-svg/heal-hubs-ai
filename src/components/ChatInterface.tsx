@@ -122,14 +122,6 @@ const ChatInterface = () => {
     <section className="bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-3 space-y-1">
-            <h2 className="text-xl md:text-2xl font-bold text-foreground">
-              Start Your Conversation
-            </h2>
-            <p className="text-base text-muted-foreground">
-              Connect with our AI support system for personalized recovery guidance
-            </p>
-          </div>
 
           <Card className="h-[600px] flex flex-col bg-card/50 backdrop-blur shadow-2xl border-accent/20">
             <div className="p-6 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
