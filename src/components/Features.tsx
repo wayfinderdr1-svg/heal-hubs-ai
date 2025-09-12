@@ -36,21 +36,21 @@ const Features = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-calm">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+    <section id="how-it-works" className="py-12 sm:py-16 lg:py-20 bg-calm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 space-y-3 sm:space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             How We Support Your Recovery
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl sm:max-w-2xl mx-auto">
             Our platform combines cutting-edge AI technology with compassionate care to provide 
             personalized support for your substance abuse recovery journey.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="p-6 bg-card/50 backdrop-blur border-accent/20 hover:shadow-glow transition-all duration-300">
+            <Card key={index} className="p-4 sm:p-6 bg-card/50 backdrop-blur border-accent/20 hover:shadow-glow transition-all duration-300">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                   <feature.icon className="w-6 h-6 text-primary" />

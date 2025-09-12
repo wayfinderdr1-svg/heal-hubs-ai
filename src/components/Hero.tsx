@@ -5,16 +5,16 @@ import heroImage from "@/assets/hero-support.jpg";
 
 const Hero = () => {
   return (
-    <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[80vh]">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+    <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
                 Your Path to
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Recovery</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-lg">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
                 Get instant, compassionate support with AI-powered guidance tailored for substance abuse recovery. 
                 Available 24/7 when you need it most.
               </p>
@@ -29,7 +29,7 @@ const Hero = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link to="/chat">
                 <Button variant="hero" size="lg" className="gap-2">
                   <MessageCircle className="w-5 h-5" />
@@ -43,7 +43,7 @@ const Hero = () => {
               </Link>
             </div>
             
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
               <div className="text-center space-y-2">
                 <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-primary" />

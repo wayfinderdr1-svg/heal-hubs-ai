@@ -120,37 +120,37 @@ const ChatInterface = () => {
 
   return (
     <section className="bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-sm sm:max-w-2xl lg:max-w-4xl mx-auto">
 
-          <Card className="h-[400px] flex flex-col bg-card/50 backdrop-blur shadow-2xl border-accent/20">
-            <div className="p-6 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-primary-foreground" />
+          <Card className="h-[350px] sm:h-[400px] lg:h-[500px] flex flex-col bg-card/50 backdrop-blur shadow-2xl border-accent/20">
+            <div className="p-3 sm:p-4 lg:p-6 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Recovery Assistant</h3>
-                  <p className="text-sm text-muted-foreground">Online • Always here to help</p>
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">Recovery Assistant</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Online • Always here to help</p>
                 </div>
               </div>
             </div>
 
-            <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
-              <div className="space-y-6">
+            <ScrollArea className="flex-1 p-3 sm:p-4 lg:p-6" ref={scrollAreaRef}>
+              <div className="space-y-4 sm:space-y-6">
                 {messages.map((message, index) => (
                   <div
                     key={message.id}
-                    className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                    className={`flex gap-2 sm:gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
                   >
                     {message.sender === 'ai' && (
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                        <Bot className="w-4 h-4 text-primary-foreground" />
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                        <Bot className="w-3 h-3 sm:w-4 sm:h-4 text-primary-foreground" />
                       </div>
                     )}
                     
                     <div
-                      className={`max-w-[80%] p-4 rounded-2xl transition-all duration-300 ${
+                      className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 lg:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 ${
                         message.sender === 'user'
                           ? 'bg-primary text-primary-foreground ml-auto'
                           : 'bg-supportive text-supportive-foreground hover:shadow-md'
@@ -160,15 +160,15 @@ const ChatInterface = () => {
                           : ''
                       }`}
                     >
-                      <p className="text-sm leading-relaxed">{message.content}</p>
-                      <p className="text-xs opacity-70 mt-2">
+                      <p className="text-xs sm:text-sm leading-relaxed">{message.content}</p>
+                      <p className="text-xs opacity-70 mt-1 sm:mt-2">
                         {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </p>
                     </div>
 
                     {message.sender === 'user' && (
-                      <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
-                        <User className="w-4 h-4 text-muted-foreground" />
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                        <User className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
                       </div>
                     )}
                   </div>
@@ -178,7 +178,7 @@ const ChatInterface = () => {
               </div>
             </ScrollArea>
 
-            <div className="p-6 border-t border-border bg-muted/30">
+            <div className="p-3 sm:p-4 lg:p-6 border-t border-border bg-muted/30">
               <div className="flex gap-2">
                 <Input
                   ref={inputRef}
@@ -201,7 +201,7 @@ const ChatInterface = () => {
                   )}
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground mt-2 text-center">
+              <p className="text-xs text-muted-foreground mt-2 text-center px-2">
                 This is a supportive AI assistant. For emergencies, please contact your local emergency services.
               </p>
             </div>
