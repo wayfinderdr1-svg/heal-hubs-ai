@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Heart } from "lucide-react";
+import { MessageCircle, Heart, CalendarDays, TrendingUp } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -38,6 +38,18 @@ const Header = () => {
           <Link to="/chat" className="text-muted-foreground hover:text-foreground transition-colors">
             Recovery Chat
           </Link>
+          {user && (
+            <>
+              <Link to="/daily-checkin" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <CalendarDays className="w-4 h-4" />
+                Daily Check-In
+              </Link>
+              <Link to="/checkin-history" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                <TrendingUp className="w-4 h-4" />
+                Progress
+              </Link>
+            </>
+          )}
           <Button 
             variant="outline" 
             onClick={handleAuthAction}

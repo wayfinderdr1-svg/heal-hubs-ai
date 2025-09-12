@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      daily_checkins: {
+        Row: {
+          checkin_date: string
+          created_at: string
+          energy_level: number
+          exercise_minutes: number | null
+          gratitude_notes: string | null
+          id: string
+          mood_rating: number
+          notes: string | null
+          recovery_goals: string[] | null
+          sleep_hours: number | null
+          stress_level: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          checkin_date?: string
+          created_at?: string
+          energy_level: number
+          exercise_minutes?: number | null
+          gratitude_notes?: string | null
+          id?: string
+          mood_rating: number
+          notes?: string | null
+          recovery_goals?: string[] | null
+          sleep_hours?: number | null
+          stress_level: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          checkin_date?: string
+          created_at?: string
+          energy_level?: number
+          exercise_minutes?: number | null
+          gratitude_notes?: string | null
+          id?: string
+          mood_rating?: number
+          notes?: string | null
+          recovery_goals?: string[] | null
+          sleep_hours?: number | null
+          stress_level?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
