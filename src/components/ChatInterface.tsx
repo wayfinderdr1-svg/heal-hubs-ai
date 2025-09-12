@@ -27,6 +27,7 @@ const ChatInterface = () => {
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll to bottom when new messages are added
   useEffect(() => {
@@ -35,6 +36,18 @@ const ChatInterface = () => {
       block: 'end' 
     });
   }, [messages]);
+
+  // Auto-focus input after AI response
+  useEffect(() => {
+    if (messages.length > 1 && messages[messages.length - 1].sender === 'ai' && !isLoading) {
+      // Small delay to ensure scroll animation completes first
+      const focusTimer = setTimeout(() => {
+        inputRef.current?.focus();
+      }, 500);
+      
+      return () => clearTimeout(focusTimer);
+    }
+  }, [messages, isLoading]);
 
   const handleSendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
@@ -171,6 +184,7 @@ const ChatInterface = () => {
             <div className="p-6 border-t border-border bg-muted/30">
               <div className="flex gap-2">
                 <Input
+                  ref={inputRef}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
