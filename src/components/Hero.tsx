@@ -34,11 +34,6 @@ const Hero = () => {
                   Start Support Chat
                 </Button>
               </Link>
-              <Link to="/how-it-works">
-                <Button variant="supportive" size="lg">
-                  Learn More
-                </Button>
-              </Link>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
