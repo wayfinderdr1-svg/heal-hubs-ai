@@ -58,7 +58,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
             <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-80 h-80 object-contain" />
           </div>
