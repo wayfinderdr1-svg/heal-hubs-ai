@@ -5,7 +5,7 @@ import wayfinderLogo from "@/assets/wayfinder-logo.svg";
 const Hero = () => {
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
