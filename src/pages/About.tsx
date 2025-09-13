@@ -1,16 +1,14 @@
 import Footer from "@/components/Footer";
 import { Heart, Users, Target, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
 const About = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       
       <main className="pb-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 bg-sky-950">
           {/* Hero Section */}
           <section className="text-center mb-16">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto bg-cyan-900">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
                 About WayFinder
               </h1>
@@ -22,7 +20,7 @@ const About = () => {
 
           {/* Mission Section */}
           <section className="mb-16">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center bg-sky-900">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <Heart className="w-8 h-8 text-primary-foreground" />
               </div>
@@ -103,8 +101,6 @@ const About = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
