@@ -10,6 +10,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
 import { format, subDays, subWeeks, subMonths } from "date-fns";
+import progressImage from "@/assets/progress-tracking.jpg";
 const CheckinHistory = () => {
   const {
     user
@@ -128,14 +129,24 @@ const CheckinHistory = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-cyan-950">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6 sm:mb-8">
-              <div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-4 flex items-center gap-2 sm:gap-3">
-                  <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-                  Check-In History
-                </h1>
-                <p className="text-base sm:text-lg text-muted-foreground">
-                  Track your progress and identify patterns in your personal journey
-                </p>
+              <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto lg:mx-0 flex-shrink-0">
+                  <img 
+                    src={progressImage} 
+                    alt="Progress tracking"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                </div>
+                <div className="text-center lg:text-left">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-4 flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                    <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                    Check-In History
+                  </h1>
+                  <p className="text-base sm:text-lg text-muted-foreground">
+                    Track your progress and identify patterns in your personal journey
+                  </p>
+                </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">

@@ -12,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
+import dailyCheckinImage from "@/assets/daily-checkin.jpg";
 const DailyCheckin = () => {
   const {
     user
@@ -104,6 +105,14 @@ const DailyCheckin = () => {
         <div className="container mx-auto px-4 bg-sky-950">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
+              <div className="relative rounded-2xl overflow-hidden mb-6 max-w-2xl mx-auto">
+                <img 
+                  src={dailyCheckinImage} 
+                  alt="Daily check-in and wellness tracking"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              </div>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 flex items-center justify-center gap-3">
                 <CalendarDays className="w-8 h-8 text-primary" />
                 Daily Check-In

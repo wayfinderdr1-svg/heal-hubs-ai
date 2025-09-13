@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-support.jpg";
+import heroImage from "@/assets/hero-main.jpg";
 const Hero = () => {
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">

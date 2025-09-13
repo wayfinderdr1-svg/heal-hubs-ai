@@ -3,6 +3,10 @@ import { MessageCircle, Brain, Shield, Clock, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import stepChat from "@/assets/step-chat.jpg";
+import stepAnalysis from "@/assets/step-analysis.jpg";
+import stepSecurity from "@/assets/step-security.jpg";
+import stepAvailability from "@/assets/step-availability.jpg";
 const HowItWorks = () => {
   return <div className="min-h-screen bg-background">
       
@@ -24,51 +28,91 @@ const HowItWorks = () => {
           <section className="mb-16">
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <MessageCircle className="w-8 h-8 text-primary-foreground" />
+                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="relative h-32">
+                      <img 
+                        src={stepChat} 
+                        alt="Start chatting"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                      <div className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm flex items-center justify-center">
+                        <MessageCircle className="w-4 h-4 text-primary" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-4">1. Start Chatting</h3>
-                    <p className="text-muted-foreground">
-                      Simply begin a conversation with our AI assistant. Share what's on your mind, ask questions, or seek guidance.
-                    </p>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-4">1. Start Chatting</h3>
+                      <p className="text-muted-foreground">
+                        Simply begin a conversation with our AI assistant. Share what's on your mind, ask questions, or seek guidance.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <Brain className="w-8 h-8 text-primary-foreground" />
+                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="relative h-32">
+                      <img 
+                        src={stepAnalysis} 
+                        alt="AI analysis"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                      <div className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm flex items-center justify-center">
+                        <Brain className="w-4 h-4 text-primary" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-4">2. AI Analysis</h3>
-                    <p className="text-muted-foreground">
-                      Our AI, trained on evidence-based principles, analyzes your message and provides personalized responses.
-                    </p>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-4">2. AI Analysis</h3>
+                      <p className="text-muted-foreground">
+                        Our AI, trained on evidence-based principles, analyzes your message and provides personalized responses.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <Shield className="w-8 h-8 text-primary-foreground" />
+                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="relative h-32">
+                      <img 
+                        src={stepSecurity} 
+                        alt="Safe support"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                      <div className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm flex items-center justify-center">
+                        <Shield className="w-4 h-4 text-primary" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-4">3. Safe Support</h3>
-                    <p className="text-muted-foreground">
-                      Receive compassionate, non-judgmental guidance in a completely private and secure environment.
-                    </p>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-4">3. Safe Support</h3>
+                      <p className="text-muted-foreground">
+                        Receive compassionate, non-judgmental guidance in a completely private and secure environment.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <Clock className="w-8 h-8 text-primary-foreground" />
+                <Card className="bg-card/50 backdrop-blur border-accent/20 text-center overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="relative h-32">
+                      <img 
+                        src={stepAvailability} 
+                        alt="24/7 access"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                      <div className="absolute bottom-2 right-2 w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-primary" />
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-4">4. 24/7 Access</h3>
-                    <p className="text-muted-foreground">
-                      Continue your conversations anytime, anywhere. Support is always available when you need it most.
-                    </p>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-foreground mb-4">4. 24/7 Access</h3>
+                      <p className="text-muted-foreground">
+                        Continue your conversations anytime, anywhere. Support is always available when you need it most.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
