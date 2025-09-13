@@ -54,6 +54,9 @@ export function AppSidebar() {
 
   // Handle menu item click to collapse sidebar on mobile/small screens
   const handleMenuClick = () => {
+    // Scroll to top of page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     if (isMobile) {
       // Close the mobile sheet
       setOpenMobile(false);
