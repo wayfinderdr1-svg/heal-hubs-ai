@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-main.jpg";
+import wayfinderLogo from "@/assets/wayfinder-logo.svg";
 const Hero = () => {
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
@@ -58,9 +58,9 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative flex items-center justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
-            <img src={heroImage} alt="Supportive environment for personal growth" className="relative rounded-3xl shadow-2xl w-full h-auto" />
+            <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-80 h-80 object-contain" />
           </div>
         </div>
       </div>
