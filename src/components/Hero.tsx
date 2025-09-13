@@ -2,11 +2,9 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-support.jpg";
-
 const Hero = () => {
-  return (
-    <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+  return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-3 sm:space-y-4">
@@ -67,16 +65,10 @@ const Hero = () => {
           
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
-            <img 
-              src={heroImage} 
-              alt="Supportive environment for personal growth" 
-              className="relative rounded-3xl shadow-2xl w-full h-auto"
-            />
+            <img src={heroImage} alt="Supportive environment for personal growth" className="relative rounded-3xl shadow-2xl w-full h-auto" />
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
