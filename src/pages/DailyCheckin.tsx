@@ -12,13 +12,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
-
 const DailyCheckin = () => {
-  const { user } = useAuth();
+  const {
+    user
+  } = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [existingCheckin, setExistingCheckin] = useState<any>(null);
-  
   const [formData, setFormData] = useState({
     moodRating: 5,
     energyLevel: 5,
@@ -29,44 +29,25 @@ const DailyCheckin = () => {
     gratitudeNotes: "",
     personalGoals: [] as string[]
   });
-
-  const personalGoalOptions = [
-    "Stay sober today",
-    "Attend support meeting",
-    "Practice mindfulness",
-    "Exercise or move body",
-    "Connect with support person",
-    "Avoid triggers",
-    "Practice gratitude",
-    "Focus on self-care"
-  ];
-
+  const personalGoalOptions = ["Stay sober today", "Attend support meeting", "Practice mindfulness", "Exercise or move body", "Connect with support person", "Avoid triggers", "Practice gratitude", "Focus on self-care"];
   useEffect(() => {
     if (!user) {
       navigate("/auth");
       return;
     }
-    
     checkExistingCheckin();
   }, [user, navigate]);
-
   const checkExistingCheckin = async () => {
     if (!user) return;
-
     const today = new Date().toISOString().split('T')[0];
-    
-    const { data, error } = await supabase
-      .from('daily_checkins')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('checkin_date', today)
-      .maybeSingle();
-
+    const {
+      data,
+      error
+    } = await supabase.from('daily_checkins').select('*').eq('user_id', user.id).eq('checkin_date', today).maybeSingle();
     if (error) {
       console.error('Error checking existing checkin:', error);
       return;
     }
-
     if (data) {
       setExistingCheckin(data);
       setFormData({
@@ -81,13 +62,10 @@ const DailyCheckin = () => {
       });
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) return;
-
     setIsLoading(true);
-
     try {
       const checkinData = {
         user_id: user.id,
@@ -101,18 +79,10 @@ const DailyCheckin = () => {
         gratitude_notes: formData.gratitudeNotes,
         recovery_goals: formData.personalGoals
       };
-
-      const { error } = existingCheckin
-        ? await supabase
-            .from('daily_checkins')
-            .update(checkinData)
-            .eq('id', existingCheckin.id)
-        : await supabase
-            .from('daily_checkins')
-            .insert([checkinData]);
-
+      const {
+        error
+      } = existingCheckin ? await supabase.from('daily_checkins').update(checkinData).eq('id', existingCheckin.id) : await supabase.from('daily_checkins').insert([checkinData]);
       if (error) throw error;
-
       toast.success(existingCheckin ? "Check-in updated successfully!" : "Check-in saved successfully!");
       navigate("/checkin-history");
     } catch (error) {
@@ -122,21 +92,16 @@ const DailyCheckin = () => {
       setIsLoading(false);
     }
   };
-
   const handleGoalToggle = (goal: string) => {
     setFormData(prev => ({
       ...prev,
-      personalGoals: prev.personalGoals.includes(goal)
-        ? prev.personalGoals.filter(g => g !== goal)
-        : [...prev.personalGoals, goal]
+      personalGoals: prev.personalGoals.includes(goal) ? prev.personalGoals.filter(g => g !== goal) : [...prev.personalGoals, goal]
     }));
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       
       <main className="pb-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 bg-sky-950">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 flex items-center justify-center gap-3">
@@ -161,14 +126,10 @@ const DailyCheckin = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <Slider
-                        value={[formData.moodRating]}
-                        onValueChange={([value]) => setFormData(prev => ({ ...prev, moodRating: value }))}
-                        min={1}
-                        max={10}
-                        step={1}
-                        className="w-full"
-                      />
+                      <Slider value={[formData.moodRating]} onValueChange={([value]) => setFormData(prev => ({
+                      ...prev,
+                      moodRating: value
+                    }))} min={1} max={10} step={1} className="w-full" />
                       <div className="text-center">
                         <span className="text-2xl font-bold text-primary">{formData.moodRating}</span>
                         <p className="text-sm text-muted-foreground">
@@ -190,14 +151,10 @@ const DailyCheckin = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <Slider
-                        value={[formData.energyLevel]}
-                        onValueChange={([value]) => setFormData(prev => ({ ...prev, energyLevel: value }))}
-                        min={1}
-                        max={10}
-                        step={1}
-                        className="w-full"
-                      />
+                      <Slider value={[formData.energyLevel]} onValueChange={([value]) => setFormData(prev => ({
+                      ...prev,
+                      energyLevel: value
+                    }))} min={1} max={10} step={1} className="w-full" />
                       <div className="text-center">
                         <span className="text-2xl font-bold text-accent">{formData.energyLevel}</span>
                         <p className="text-sm text-muted-foreground">
@@ -219,14 +176,10 @@ const DailyCheckin = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <Slider
-                        value={[formData.stressLevel]}
-                        onValueChange={([value]) => setFormData(prev => ({ ...prev, stressLevel: value }))}
-                        min={1}
-                        max={10}
-                        step={1}
-                        className="w-full"
-                      />
+                      <Slider value={[formData.stressLevel]} onValueChange={([value]) => setFormData(prev => ({
+                      ...prev,
+                      stressLevel: value
+                    }))} min={1} max={10} step={1} className="w-full" />
                       <div className="text-center">
                         <span className="text-2xl font-bold text-destructive">{formData.stressLevel}</span>
                         <p className="text-sm text-muted-foreground">
@@ -247,15 +200,10 @@ const DailyCheckin = () => {
                     <CardDescription>How many hours did you sleep?</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Input
-                      type="number"
-                      min="0"
-                      max="24"
-                      step="0.5"
-                      value={formData.sleepHours}
-                      onChange={(e) => setFormData(prev => ({ ...prev, sleepHours: parseFloat(e.target.value) || 0 }))}
-                      className="text-center text-lg"
-                    />
+                    <Input type="number" min="0" max="24" step="0.5" value={formData.sleepHours} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    sleepHours: parseFloat(e.target.value) || 0
+                  }))} className="text-center text-lg" />
                   </CardContent>
                 </Card>
               </div>
@@ -270,13 +218,10 @@ const DailyCheckin = () => {
                   <CardDescription>How many minutes did you exercise today?</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Input
-                    type="number"
-                    min="0"
-                    value={formData.exerciseMinutes}
-                    onChange={(e) => setFormData(prev => ({ ...prev, exerciseMinutes: parseInt(e.target.value) || 0 }))}
-                    className="text-center text-lg"
-                  />
+                  <Input type="number" min="0" value={formData.exerciseMinutes} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  exerciseMinutes: parseInt(e.target.value) || 0
+                }))} className="text-center text-lg" />
                 </CardContent>
               </Card>
 
@@ -291,16 +236,10 @@ const DailyCheckin = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {personalGoalOptions.map((goal) => (
-                      <div key={goal} className="flex items-center space-x-2">
-                        <Checkbox
-                          id={goal}
-                          checked={formData.personalGoals.includes(goal)}
-                          onCheckedChange={() => handleGoalToggle(goal)}
-                        />
+                    {personalGoalOptions.map(goal => <div key={goal} className="flex items-center space-x-2">
+                        <Checkbox id={goal} checked={formData.personalGoals.includes(goal)} onCheckedChange={() => handleGoalToggle(goal)} />
                         <Label htmlFor={goal} className="text-sm">{goal}</Label>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </CardContent>
               </Card>
@@ -315,12 +254,10 @@ const DailyCheckin = () => {
                   <CardDescription>What are you grateful for today?</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Textarea
-                    value={formData.gratitudeNotes}
-                    onChange={(e) => setFormData(prev => ({ ...prev, gratitudeNotes: e.target.value }))}
-                    placeholder="I'm grateful for..."
-                    rows={3}
-                  />
+                  <Textarea value={formData.gratitudeNotes} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  gratitudeNotes: e.target.value
+                }))} placeholder="I'm grateful for..." rows={3} />
                 </CardContent>
               </Card>
 
@@ -331,22 +268,15 @@ const DailyCheckin = () => {
                   <CardDescription>Any other thoughts or reflections for today?</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Textarea
-                    value={formData.notes}
-                    onChange={(e) => setFormData(prev => ({ ...prev, notes: e.target.value }))}
-                    placeholder="Share your thoughts, challenges, or victories from today..."
-                    rows={4}
-                  />
+                  <Textarea value={formData.notes} onChange={e => setFormData(prev => ({
+                  ...prev,
+                  notes: e.target.value
+                }))} placeholder="Share your thoughts, challenges, or victories from today..." rows={4} />
                 </CardContent>
               </Card>
 
               <div className="flex justify-center">
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  disabled={isLoading}
-                  className="min-w-[200px]"
-                >
+                <Button type="submit" size="lg" disabled={isLoading} className="min-w-[200px]">
                   {isLoading ? "Saving..." : existingCheckin ? "Update Check-In" : "Save Check-In"}
                 </Button>
               </div>
@@ -356,8 +286,6 @@ const DailyCheckin = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default DailyCheckin;
