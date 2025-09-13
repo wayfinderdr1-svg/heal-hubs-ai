@@ -6,12 +6,12 @@ const Features = () => {
     {
       icon: MessageSquare,
       title: "Real-Time Support",
-      description: "Instant access to compassionate AI-powered conversations whenever you need support on your recovery journey."
+      description: "Instant access to compassionate AI-powered conversations whenever you need support on your personal journey."
     },
     {
       icon: Brain,
       title: "AI-Powered Guidance",
-      description: "Advanced AI trained on substance abuse recovery principles provides personalized, evidence-based responses."
+      description: "Advanced AI trained on evidence-based principles provides personalized, supportive responses."
     },
     {
       icon: Shield,
@@ -21,7 +21,7 @@ const Features = () => {
     {
       icon: Clock,
       title: "24/7 Availability",
-      description: "Support is available around the clock, because recovery doesn't follow a schedule."
+      description: "Support is available around the clock, because life doesn't follow a schedule."
     },
     {
       icon: Heart,
@@ -40,11 +40,11 @@ const Features = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12 lg:mb-16 space-y-3 sm:space-y-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            How We Support Your Recovery
+            How We Support Your Journey
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl sm:max-w-2xl mx-auto">
             Our platform combines cutting-edge AI technology with compassionate care to provide 
-            personalized support for your substance abuse recovery journey.
+            personalized support for your personal growth journey.
           </p>
         </div>
 

@@ -97,11 +97,11 @@ const Support = () => {
                     <div>
                       <div className="flex items-center gap-3 mb-4">
                         <MessageCircle className="w-8 h-8 text-primary" />
-                        <h3 className="text-2xl font-semibold text-foreground">AI Recovery Chat</h3>
+                        <h3 className="text-2xl font-semibold text-foreground">AI Support Chat</h3>
                       </div>
                       <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                         Our AI assistant is available 24/7 to provide immediate support, guidance, and 
-                        evidence-based recovery strategies tailored to your needs.
+                        evidence-based strategies tailored to your needs.
                       </p>
                       <Link to="/chat">
                         <Button className="gap-2">
@@ -133,7 +133,7 @@ const Support = () => {
                         <li>• Treatment center directories</li>
                         <li>• Support group listings</li>
                         <li>• Educational resources</li>
-                        <li>• Recovery tools and worksheets</li>
+                        <li>• Support tools and worksheets</li>
                         <li>• Professional referrals</li>
                       </ul>
                     </div>
@@ -143,7 +143,7 @@ const Support = () => {
                         <h3 className="text-2xl font-semibold text-foreground">Resource Library</h3>
                       </div>
                       <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                        Access our comprehensive library of recovery resources, including treatment 
+                        Access our comprehensive library of support resources, including wellness 
                         options, support groups, and educational materials.
                       </p>
                       <Button variant="outline">

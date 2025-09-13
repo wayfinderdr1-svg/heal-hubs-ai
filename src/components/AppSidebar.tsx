@@ -15,7 +15,7 @@ import { useAuth } from "@/contexts/AuthContext";
 
 const publicItems = [
   { title: "Home", url: "/", icon: Home },
-  { title: "Recovery Chat", url: "/chat", icon: MessageCircle },
+  { title: "Support Chat", url: "/chat", icon: MessageCircle },
   { title: "About", url: "/about", icon: Info },
   { title: "How It Works", url: "/how-it-works", icon: HelpCircle },
   { title: "Support", url: "/support", icon: HelpCircle },
@@ -81,11 +81,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Recovery Tools - Only show if authenticated */}
+        {/* Support Tools - Only show if authenticated */}
         {user && (
           <SidebarGroup>
             <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
-              Recovery Tools
+              Support Tools
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>

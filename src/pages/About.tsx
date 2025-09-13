@@ -15,7 +15,7 @@ const About = () => {
                 About WayFinder
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                Empowering recovery journeys through compassionate AI-powered support and community connection.
+                Empowering personal journeys through compassionate AI-powered support and community connection.
               </p>
             </div>
           </section>
@@ -28,9 +28,9 @@ const About = () => {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We believe that everyone deserves access to compassionate, judgment-free support on their recovery journey. 
-                WayFinder combines cutting-edge AI technology with evidence-based recovery principles to provide 24/7 
-                guidance, encouragement, and resources for those seeking healing and growth.
+                We believe that everyone deserves access to compassionate, judgment-free support on their personal journey. 
+                WayFinder combines cutting-edge AI technology with evidence-based principles to provide 24/7 
+                guidance, encouragement, and resources for those seeking growth and development.
               </p>
             </div>
           </section>
@@ -46,7 +46,7 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">Community</h3>
                   <p className="text-muted-foreground">
-                    Building supportive connections that foster healing and understanding among individuals on similar journeys.
+                    Building supportive connections that foster growth and understanding among individuals on similar journeys.
                   </p>
                 </CardContent>
               </Card>
@@ -58,7 +58,7 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">Empowerment</h3>
                   <p className="text-muted-foreground">
-                    Providing tools and resources that enable individuals to take control of their recovery and build resilience.
+                    Providing tools and resources that enable individuals to take control of their journey and build resilience.
                   </p>
                 </CardContent>
               </Card>
@@ -83,18 +83,18 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Our Story</h2>
               <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12">
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  WayFinder was born from the understanding that recovery is a deeply personal journey that requires 
+                  WayFinder was born from the understanding that personal growth is a deeply individual journey that requires 
                   accessible, compassionate support. Traditional therapy and support groups are invaluable, but they're 
                   not always available when someone needs help the most.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Our team of technologists, therapists, and recovery advocates came together to create a platform that 
-                  bridges this gap. By leveraging advanced AI trained on evidence-based recovery principles, we provide 
+                  Our team of technologists, therapists, and advocates came together to create a platform that 
+                  bridges this gap. By leveraging advanced AI trained on evidence-based principles, we provide 
                   immediate, personalized support that complements professional treatment.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Every conversation, every feature, and every update is designed with one goal in mind: supporting 
-                  individuals on their path to healing and helping them find their way forward.
+                  individuals on their path to growth and helping them find their way forward.
                 </p>
               </div>
             </div>

@@ -36,7 +36,7 @@ const Header = () => {
             Support
           </Link>
           <Link to="/chat" className="text-muted-foreground hover:text-foreground transition-colors">
-            Recovery Chat
+            Support Chat
           </Link>
           {user && (
             <>

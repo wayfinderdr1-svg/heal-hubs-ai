@@ -147,7 +147,7 @@ const CheckinHistory = () => {
                   Check-In History
                 </h1>
                 <p className="text-base sm:text-lg text-muted-foreground">
-                  Track your progress and identify patterns in your recovery journey
+                  Track your progress and identify patterns in your personal journey
                 </p>
               </div>
               
@@ -177,7 +177,7 @@ const CheckinHistory = () => {
                   <CalendarDays className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">No check-ins yet</h3>
                   <p className="text-muted-foreground mb-6">
-                    Start tracking your recovery journey by completing your first daily check-in.
+                    Start tracking your personal journey by completing your first daily check-in.
                   </p>
                   <Button onClick={() => navigate("/daily-checkin")} className="gap-2">
                     <Plus className="w-4 h-4" />
@@ -308,11 +308,11 @@ const CheckinHistory = () => {
                   </Card>
                 </div>
 
-                {/* Common Recovery Goals */}
+                {/* Common Personal Goals */}
                 {commonGoals.length > 0 && (
                   <Card>
                     <CardHeader>
-                      <CardTitle>Most Common Recovery Goals</CardTitle>
+                      <CardTitle>Most Common Personal Goals</CardTitle>
                       <CardDescription>Your top focus areas during this period</CardDescription>
                     </CardHeader>
                     <CardContent>

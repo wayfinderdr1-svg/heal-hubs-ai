@@ -10,17 +10,17 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <Heart className="w-4 h-4 text-primary-foreground" />
               </div>
-              <span className="text-xl font-semibold text-foreground">RecoveryChat</span>
+              <span className="text-xl font-semibold text-foreground">WayFinder</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Supporting your recovery journey with compassionate AI-powered guidance, available 24/7.
+              Supporting your personal journey with compassionate AI-powered guidance, available 24/7.
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Recovery Guidelines</a></li>
+              <li><a href="#" className="hover:text-foreground transition-colors">Wellness Guidelines</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Support Groups</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Professional Help</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Emergency Resources</a></li>
@@ -50,7 +50,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <span>support@recoverychat.com</span>
+                <span>support@wayfinder.com</span>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 RecoveryChat. This platform provides support and guidance but is not a replacement for professional medical care.
+            © 2024 WayFinder. This platform provides support and guidance but is not a replacement for professional medical care.
           </p>
         </div>
       </div>

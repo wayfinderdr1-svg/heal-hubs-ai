@@ -12,20 +12,20 @@ const Hero = () => {
             <div className="space-y-3 sm:space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
                 Your Path to
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Recovery</span>
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Growth</span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
-                Get instant, compassionate support with AI-powered guidance tailored for substance abuse recovery. 
+                Get instant, compassionate support with AI-powered guidance for your personal growth journey. 
                 Available 24/7 when you need it most.
               </p>
             </div>
 
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-4 border border-primary/20">
               <p className="text-sm font-medium text-foreground mb-1">
-                💡 Sign up to unlock your full recovery toolkit
+                💡 Sign up to unlock your full support toolkit
               </p>
               <p className="text-sm text-muted-foreground">
-                Save your daily check-ins, track your progress over time, and build lasting recovery habits with personalized insights.
+                Save your daily check-ins, track your progress over time, and build lasting growth habits with personalized insights.
               </p>
             </div>
             
@@ -33,7 +33,7 @@ const Hero = () => {
               <Link to="/chat">
                 <Button variant="hero" size="lg" className="gap-2">
                   <MessageCircle className="w-5 h-5" />
-                  Start Recovery Chat
+                  Start Support Chat
                 </Button>
               </Link>
               <Link to="/how-it-works">
@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
             <img 
               src={heroImage} 
-              alt="Supportive recovery environment" 
+              alt="Supportive environment for personal growth" 
               className="relative rounded-3xl shadow-2xl w-full h-auto"
             />
           </div>

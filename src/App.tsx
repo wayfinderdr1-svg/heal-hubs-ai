@@ -12,7 +12,7 @@ import Auth from "./pages/Auth";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Support from "./pages/Support";
-import RecoveryChat from "./pages/RecoveryChat";
+import SupportChat from "./pages/SupportChat";
 import DailyCheckin from "./pages/DailyCheckin";
 import CheckinHistory from "./pages/CheckinHistory";
 import NotFound from "./pages/NotFound";
@@ -44,7 +44,7 @@ const App = () => (
                   <Route path="/about" element={<About />} />
                   <Route path="/how-it-works" element={<HowItWorks />} />
                   <Route path="/support" element={<Support />} />
-                  <Route path="/chat" element={<RecoveryChat />} />
+                  <Route path="/chat" element={<SupportChat />} />
                   <Route path="/daily-checkin" element={<DailyCheckin />} />
                   <Route path="/checkin-history" element={<CheckinHistory />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

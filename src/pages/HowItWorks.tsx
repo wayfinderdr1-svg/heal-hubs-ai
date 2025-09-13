@@ -17,7 +17,7 @@ const HowItWorks = () => {
                 How WayFinder Works
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                Your AI-powered recovery companion, available 24/7 to support your healing journey.
+                Your AI-powered companion, available 24/7 to support your personal growth journey.
               </p>
             </div>
           </section>
@@ -45,7 +45,7 @@ const HowItWorks = () => {
                     </div>
                     <h3 className="text-xl font-semibold text-foreground mb-4">2. AI Analysis</h3>
                     <p className="text-muted-foreground">
-                      Our AI, trained on evidence-based recovery principles, analyzes your message and provides personalized responses.
+                      Our AI, trained on evidence-based principles, analyzes your message and provides personalized responses.
                     </p>
                   </CardContent>
                 </Card>
@@ -86,8 +86,8 @@ const HowItWorks = () => {
                 <div>
                   <h3 className="text-2xl font-semibold text-foreground mb-4">Evidence-Based Responses</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    Our AI is trained on proven recovery methodologies, therapeutic techniques, and best practices 
-                    from addiction medicine and mental health professionals.
+                    Our AI is trained on proven methodologies, therapeutic techniques, and best practices 
+                    from mental health professionals.
                   </p>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-center gap-2">
@@ -132,7 +132,7 @@ const HowItWorks = () => {
                 <div className="md:order-2">
                   <h3 className="text-2xl font-semibold text-foreground mb-4">Complete Privacy & Security</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    Your recovery journey is personal. We use industry-leading security measures to ensure your 
+                    Your personal journey is unique to you. We use industry-leading security measures to ensure your 
                     conversations remain private and are never shared with third parties.
                   </p>
                   <ul className="space-y-2 text-muted-foreground">
@@ -160,7 +160,7 @@ const HowItWorks = () => {
             <div className="max-w-3xl mx-auto bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Ready to Start Your Journey?</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Take the first step towards healing and growth with compassionate AI-powered support.
+                Take the first step towards growth and development with compassionate AI-powered support.
               </p>
               <div className="flex justify-center">
                 <Link to="/chat">

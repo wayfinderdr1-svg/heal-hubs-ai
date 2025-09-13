@@ -57,7 +57,7 @@ const Auth = () => {
               WayFinder
             </CardTitle>
             <CardDescription className="text-muted-foreground">
-              Your journey to recovery starts here
+              Your journey to personal growth starts here
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -155,7 +155,7 @@ const Auth = () => {
 
         <div className="text-center text-sm text-muted-foreground">
           <p>By continuing, you agree to our terms of service and privacy policy.</p>
-          <p className="mt-2 font-medium">Your privacy and recovery journey are our priority.</p>
+          <p className="mt-2 font-medium">Your privacy and personal journey are our priority.</p>
         </div>
       </div>
     </div>

@@ -27,10 +27,10 @@ const DailyCheckin = () => {
     exerciseMinutes: 0,
     notes: "",
     gratitudeNotes: "",
-    recoveryGoals: [] as string[]
+    personalGoals: [] as string[]
   });
 
-  const recoveryGoalOptions = [
+  const personalGoalOptions = [
     "Stay sober today",
     "Attend support meeting",
     "Practice mindfulness",
@@ -77,7 +77,7 @@ const DailyCheckin = () => {
         exerciseMinutes: data.exercise_minutes || 0,
         notes: data.notes || "",
         gratitudeNotes: data.gratitude_notes || "",
-        recoveryGoals: data.recovery_goals || []
+        personalGoals: data.recovery_goals || []
       });
     }
   };
@@ -99,7 +99,7 @@ const DailyCheckin = () => {
         exercise_minutes: formData.exerciseMinutes,
         notes: formData.notes,
         gratitude_notes: formData.gratitudeNotes,
-        recovery_goals: formData.recoveryGoals
+        recovery_goals: formData.personalGoals
       };
 
       const { error } = existingCheckin
@@ -126,9 +126,9 @@ const DailyCheckin = () => {
   const handleGoalToggle = (goal: string) => {
     setFormData(prev => ({
       ...prev,
-      recoveryGoals: prev.recoveryGoals.includes(goal)
-        ? prev.recoveryGoals.filter(g => g !== goal)
-        : [...prev.recoveryGoals, goal]
+      personalGoals: prev.personalGoals.includes(goal)
+        ? prev.personalGoals.filter(g => g !== goal)
+        : [...prev.personalGoals, goal]
     }));
   };
 
@@ -144,7 +144,7 @@ const DailyCheckin = () => {
                 Daily Check-In
               </h1>
               <p className="text-lg text-muted-foreground">
-                {existingCheckin ? "Update your daily check-in" : "Track your recovery journey with today's check-in"}
+                {existingCheckin ? "Update your daily check-in" : "Track your personal journey with today's check-in"}
               </p>
             </div>
 
@@ -280,22 +280,22 @@ const DailyCheckin = () => {
                 </CardContent>
               </Card>
 
-              {/* Recovery Goals */}
+              {/* Personal Goals */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Target className="w-5 h-5 text-primary" />
-                    Today's Recovery Goals
+                    Today's Personal Goals
                   </CardTitle>
                   <CardDescription>Select the goals you want to focus on today</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-3">
-                    {recoveryGoalOptions.map((goal) => (
+                    {personalGoalOptions.map((goal) => (
                       <div key={goal} className="flex items-center space-x-2">
                         <Checkbox
                           id={goal}
-                          checked={formData.recoveryGoals.includes(goal)}
+                          checked={formData.personalGoals.includes(goal)}
                           onCheckedChange={() => handleGoalToggle(goal)}
                         />
                         <Label htmlFor={goal} className="text-sm">{goal}</Label>

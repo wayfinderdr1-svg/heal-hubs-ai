@@ -18,7 +18,7 @@ const ChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: "Hello! I'm here to provide support and guidance for your recovery journey. How are you feeling today?",
+      content: "Hello! I'm here to provide support and guidance for your personal journey. How are you feeling today?",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -130,7 +130,7 @@ const ChatInterface = () => {
                   <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-sm sm:text-base font-semibold text-foreground">Recovery Assistant</h3>
+                  <h3 className="text-sm sm:text-base font-semibold text-foreground">Support Assistant</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground">Online • Always here to help</p>
                 </div>
               </div>
