@@ -4,13 +4,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Link } from "react-router-dom";
+import heroSupport from "@/assets/hero-support.jpg";
+import supportChat from "@/assets/support-chat.jpg";
+import supportResources from "@/assets/support-resources.jpg";
+import supportContact from "@/assets/support-contact.jpg";
+import supportCrisis from "@/assets/support-crisis.jpg";
 const Support = () => {
   return <div className="min-h-screen bg-background">
       
       <main className="pb-12">
         <div className="container mx-auto px-4 bg-cyan-900">
           {/* Hero Section */}
-          <section className="text-center mb-16">
+          <section className="text-center mb-16 relative">
+            <div className="relative rounded-2xl overflow-hidden mb-8">
+              <img 
+                src={heroSupport} 
+                alt="Support and helping hands"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
+            </div>
             <div className="max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
                 Support & Resources
@@ -30,6 +43,16 @@ const Support = () => {
               </AlertDescription>
             </Alert>
 
+            <div className="flex items-center justify-center mb-8">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden">
+                <img 
+                  src={supportCrisis} 
+                  alt="Crisis support resources"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+              </div>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Crisis Resources</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               
@@ -89,7 +112,7 @@ const Support = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">How We Support You</h2>
             <div className="max-w-5xl mx-auto space-y-8">
 
-              <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-accent/20">
+              <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-accent/20 overflow-hidden">
                 <CardContent className="p-8">
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div>
@@ -108,32 +131,44 @@ const Support = () => {
                         </Button>
                       </Link>
                     </div>
-                    <div className="bg-background/50 rounded-lg p-6">
-                      <h4 className="font-semibold text-foreground mb-3">Available Support:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li>• Crisis intervention techniques</li>
-                        <li>• Coping strategy development</li>
-                        <li>• Relapse prevention planning</li>
-                        <li>• Motivational support</li>
-                        <li>• Resource recommendations</li>
-                      </ul>
+                    <div className="relative">
+                      <img 
+                        src={supportChat} 
+                        alt="AI chat support interface"
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent rounded-lg" />
+                      <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3">
+                        <h4 className="font-semibold text-foreground text-sm mb-2">Available Support:</h4>
+                        <ul className="space-y-1 text-xs text-muted-foreground">
+                          <li>• Crisis intervention techniques</li>
+                          <li>• Coping strategy development</li>
+                          <li>• Motivational support</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/50 backdrop-blur border-accent/20">
+              <Card className="bg-card/50 backdrop-blur border-accent/20 overflow-hidden">
                 <CardContent className="p-8">
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="bg-background/50 rounded-lg p-6">
-                      <h4 className="font-semibold text-foreground mb-3">What We Provide:</h4>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li>• Treatment center directories</li>
-                        <li>• Support group listings</li>
-                        <li>• Educational resources</li>
-                        <li>• Support tools and worksheets</li>
-                        <li>• Professional referrals</li>
-                      </ul>
+                    <div className="relative">
+                      <img 
+                        src={supportResources} 
+                        alt="Resource library"
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent rounded-lg" />
+                      <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg p-3">
+                        <h4 className="font-semibold text-foreground text-sm mb-2">What We Provide:</h4>
+                        <ul className="space-y-1 text-xs text-muted-foreground">
+                          <li>• Treatment center directories</li>
+                          <li>• Support group listings</li>
+                          <li>• Educational resources</li>
+                        </ul>
+                      </div>
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-4">
@@ -157,6 +192,16 @@ const Support = () => {
 
           {/* Contact Section */}
           <section className="mb-16">
+            <div className="flex items-center justify-center mb-8">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden">
+                <img 
+                  src={supportContact} 
+                  alt="Contact support team"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+              </div>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Get in Touch</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               
