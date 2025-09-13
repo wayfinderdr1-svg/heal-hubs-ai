@@ -285,7 +285,7 @@ const DailyCheckin = () => {
               </Card>
 
               <div className="flex justify-center">
-                <Button type="submit" size="lg" disabled={isLoading} className="min-w-[200px]">
+                <Button type="submit" variant="hero" size="lg" disabled={isLoading} className="min-w-[200px]">
                   {isLoading ? "Saving..." : existingCheckin ? "Update Check-In" : "Save Check-In"}
                 </Button>
               </div>
