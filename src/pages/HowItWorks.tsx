@@ -3,13 +3,11 @@ import { MessageCircle, Brain, Shield, Clock, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
 const HowItWorks = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       
       <main className="pb-12">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 bg-sky-900">
           {/* Hero Section */}
           <section className="text-center mb-16">
             <div className="max-w-4xl mx-auto">
@@ -177,8 +175,6 @@ const HowItWorks = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default HowItWorks;
