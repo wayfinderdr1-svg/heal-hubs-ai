@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Shield, Clock, Heart } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
 const Hero = () => {
@@ -38,25 +38,12 @@ const Hero = () => {
               </Button>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <p className="text-sm font-medium">100% Confidential</p>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto rounded-full bg-accent/10 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-accent" />
-                </div>
-                <p className="text-sm font-medium">24/7 Available</p>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="w-12 h-12 mx-auto rounded-full bg-success/10 flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-success" />
-                </div>
-                <p className="text-sm font-medium">Compassionate AI</p>
-              </div>
+            <div className="flex flex-wrap justify-center gap-6 pt-4 text-xs text-muted-foreground">
+              <span>100% Confidential</span>
+              <span>•</span>
+              <span>24/7 Available</span>
+              <span>•</span>
+              <span>Compassionate AI</span>
             </div>
           </div>
           
