@@ -206,7 +206,7 @@ const HowItWorks = () => {
               </p>
               <div className="flex justify-center">
                 <Link to="/chat">
-                  <Button size="lg" className="gap-2">
+                  <Button variant="hero" size="lg" className="gap-2">
                     <MessageCircle className="w-5 h-5" />
                     Start Chatting Now
                   </Button>
