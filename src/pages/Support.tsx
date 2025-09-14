@@ -28,9 +28,17 @@ const Support = () => {
                   <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                     Support & Resources
                   </h1>
-                  <p className="text-xl md:text-2xl text-white/90 mb-8">
+                  <p className="text-xl md:text-2xl text-white/90 mb-6">
                     We're here to help you every step of the way. Find the support you need, when you need it.
                   </p>
+                  <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-4 backdrop-blur-sm">
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <AlertCircle className="h-4 w-4 text-red-300" />
+                      <p className="text-red-100 font-medium text-sm md:text-base">
+                        If you're experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -38,12 +46,6 @@ const Support = () => {
 
           {/* Emergency Resources */}
           <section className="mb-12">
-            <Alert className="border-destructive/20 bg-destructive/5 mb-6">
-              <AlertCircle className="h-4 w-4 text-red-500" />
-              <AlertDescription className="text-white font-medium">
-                If you&apos;re experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
-              </AlertDescription>
-            </Alert>
 
             <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6 flex items-center justify-center gap-3">
               <Phone className="w-8 h-8 text-red-500" />
