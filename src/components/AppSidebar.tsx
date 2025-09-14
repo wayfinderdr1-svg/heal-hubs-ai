@@ -1,4 +1,4 @@
-import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route, LifeBuoy } from "lucide-react";
+import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route, LifeBuoy, LogOut } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
@@ -44,9 +44,7 @@ export function AppSidebar() {
     setOpenMobile
   } = useSidebar();
   const location = useLocation();
-  const {
-    user
-  } = useAuth();
+  const { user, signOut } = useAuth();
   const currentPath = location.pathname;
   const isCollapsed = state === "collapsed";
   const isActive = (path: string) => currentPath === path;
@@ -124,6 +122,14 @@ export function AppSidebar() {
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+              {user && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton onClick={() => { signOut(); handleMenuClick(); }}>
+                    <LogOut className="h-4 w-4" />
+                    {!isCollapsed && <span>Sign Out</span>}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
