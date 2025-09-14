@@ -250,44 +250,6 @@ const Support = () => {
             </div>
           </section>
 
-          {/* FAQ Section */}
-          <section>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">Frequently Asked Questions</h2>
-            <div className="max-w-4xl mx-auto space-y-6">
-              
-              <Card className="bg-card/50 backdrop-blur border-accent/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Is WayFinder a replacement for professional therapy?</h3>
-                  <p className="text-muted-foreground">
-                    No, WayFinder is designed to complement professional treatment, not replace it. While our AI provides 
-                    evidence-based support and guidance, we always recommend working with licensed professionals for 
-                    comprehensive care.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/50 backdrop-blur border-accent/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">How secure are my conversations?</h3>
-                  <p className="text-muted-foreground">
-                    All conversations are encrypted and completely confidential. We never share your personal information 
-                    or chat history with third parties. Your privacy and security are our top priorities.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-card/50 backdrop-blur border-accent/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">What if I'm having a crisis?</h3>
-                  <p className="text-muted-foreground">
-                    If you're experiencing a mental health emergency, please contact 911 or your local emergency services 
-                    immediately. For non-emergency crisis support, use the crisis resources listed above.
-                  </p>
-                </CardContent>
-              </Card>
-
-            </div>
-          </section>
 
         </div>
       </main>
