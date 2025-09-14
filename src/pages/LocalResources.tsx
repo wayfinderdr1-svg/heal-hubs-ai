@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import supportResources from "@/assets/support-resources.jpg";
 
 interface Resource {
   id: string;
@@ -258,14 +259,26 @@ const LocalResources = () => {
       <main className="pb-8">
         <div className="container mx-auto px-4 bg-cyan-900">
           {/* Header Section */}
-          <section className="text-center mb-8 pt-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Local Resources
-            </h1>
-            <p className="text-xl text-muted-foreground mb-6">
-              Find treatment centers, support groups, and educational resources in your area
-              {zipCode && <span className="block text-lg font-medium text-primary mt-2">Showing resources for zip code: {zipCode}</span>}
-            </p>
+          <section className="text-center mb-8 relative">
+            <div className="relative rounded-2xl overflow-hidden mb-8">
+              <img 
+                src={supportResources} 
+                alt="Local mental health resources and community support"
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                  <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Local Resources
+                  </h1>
+                  <p className="text-xl text-white/90 mb-6">
+                    Find treatment centers, support groups, and educational resources in your area
+                    {zipCode && <span className="block text-lg font-medium text-white mt-2">Showing resources for zip code: {zipCode}</span>}
+                  </p>
+                </div>
+              </div>
+            </div>
             
             {/* Location and Search */}
             <div className="max-w-2xl mx-auto space-y-4">
