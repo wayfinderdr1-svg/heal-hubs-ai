@@ -122,8 +122,8 @@ const Support = () => {
                         evidence-based strategies tailored to your needs.
                       </p>
                       <Link to="/chat">
-                        <Button className="gap-2">
-                          <MessageCircle className="w-4 h-4" />
+                        <Button variant="hero" size="lg" className="gap-2">
+                          <MessageCircle className="w-5 h-5" />
                           Start Chatting Now
                         </Button>
                       </Link>
