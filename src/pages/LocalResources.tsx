@@ -24,6 +24,7 @@ const LocalResources = () => {
   const [zipCode, setZipCode] = useState<string>("");
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [zipSearchQuery, setZipSearchQuery] = useState("");
   const [resources, setResources] = useState<Resource[]>([]);
 
   // Mock data organized by zip code - in a real app, this would come from an API
@@ -258,6 +259,21 @@ const LocalResources = () => {
     }
   };
 
+  const handleZipSearch = () => {
+    const cleanZip = zipSearchQuery.trim();
+    if (cleanZip && /^\d{5}$/.test(cleanZip)) {
+      setZipCode(cleanZip);
+      setLocation(`Zip Code: ${cleanZip}`);
+      loadResourcesForZip(cleanZip);
+    }
+  };
+
+  const handleZipKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleZipSearch();
+    }
+  };
+
   const filteredResources = resources.filter(resource =>
     resource.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -335,7 +351,7 @@ const LocalResources = () => {
             
             {/* Location and Search */}
             <div className="max-w-2xl mx-auto space-y-4">
-              <div className="flex items-center gap-3 justify-center">
+              <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
                 <Button
                   onClick={getLocation}
                   disabled={isLoadingLocation}
@@ -345,13 +361,35 @@ const LocalResources = () => {
                   <MapPin className="w-4 h-4" />
                   {isLoadingLocation ? "Getting Location..." : "Use My Location"}
                 </Button>
-                {location && (
-                  <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <span className="text-sm text-muted-foreground">or</span>
+                <div className="flex items-center gap-2">
+                  <Input
+                    placeholder="Enter zip code (e.g. 10001)"
+                    value={zipSearchQuery}
+                    onChange={(e) => setZipSearchQuery(e.target.value.replace(/\D/g, '').slice(0, 5))}
+                    onKeyPress={handleZipKeyPress}
+                    className="w-48"
+                    maxLength={5}
+                  />
+                  <Button
+                    onClick={handleZipSearch}
+                    disabled={!zipSearchQuery || zipSearchQuery.length !== 5}
+                    variant="default"
+                    size="sm"
+                  >
+                    Search
+                  </Button>
+                </div>
+              </div>
+              
+              {location && (
+                <div className="text-center">
+                  <span className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                     <MapPin className="w-4 h-4" />
                     {location}
                   </span>
-                )}
-              </div>
+                </div>
+              )}
               
               <div className="relative">
                 <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
