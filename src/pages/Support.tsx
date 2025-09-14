@@ -176,9 +176,11 @@ const Support = () => {
                         Access our comprehensive library of support resources, including wellness 
                         options, support groups, and educational materials.
                       </p>
-                      <Button variant="outline">
-                        Browse Resources
-                      </Button>
+                      <Link to="/local-resources">
+                        <Button variant="outline">
+                          Browse Resources
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </CardContent>
