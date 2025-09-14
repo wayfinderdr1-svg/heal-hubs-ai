@@ -19,7 +19,6 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="/how-it-works" className="hover:text-foreground transition-colors">Wellness Guidelines</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Support Groups</a></li>
               <li><a href="/local-resources" className="hover:text-foreground transition-colors">Professional Help</a></li>
               <li><a href="/support" className="hover:text-foreground transition-colors">Emergency Resources</a></li>
             </ul>
@@ -31,7 +30,7 @@ const Footer = () => {
               <li><a href="/our-support" className="hover:text-foreground transition-colors">How It Works</a></li>
               <li><a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
               <li><a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Contact Us</a></li>
+              <li><a href="/support#get-in-touch" className="hover:text-foreground transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
@@ -40,15 +39,15 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <span>Crisis Hotline: 988</span>
+                <a href="tel:988" className="hover:text-foreground transition-colors">Crisis Hotline: 988</a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <span>SAMHSA: 1-800-662-4357</span>
+                <a href="tel:1-800-662-4357" className="hover:text-foreground transition-colors">SAMHSA: 1-800-662-4357</a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <Mail className="w-4 h-4" />
-                <span>support@wayfinder.com</span>
+                <a href="mailto:support@wayfinder.com" className="hover:text-foreground transition-colors">support@wayfinder.com</a>
               </div>
             </div>
           </div>
