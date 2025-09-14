@@ -23,14 +23,16 @@ const Support = () => {
                 className="w-full h-64 md:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
-            </div>
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                Support & Resources
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                We're here to help you every step of the way. Find the support you need, when you need it.
-              </p>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Support & Resources
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white/90 mb-8">
+                    We're here to help you every step of the way. Find the support you need, when you need it.
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 
