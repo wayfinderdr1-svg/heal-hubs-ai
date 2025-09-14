@@ -18,19 +18,19 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Wellness Guidelines</a></li>
+              <li><a href="/how-it-works" className="hover:text-foreground transition-colors">Wellness Guidelines</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Support Groups</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Professional Help</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Emergency Resources</a></li>
+              <li><a href="/local-resources" className="hover:text-foreground transition-colors">Professional Help</a></li>
+              <li><a href="/support" className="hover:text-foreground transition-colors">Emergency Resources</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-foreground mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">How It Works</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms of Service</a></li>
+              <li><a href="/our-support" className="hover:text-foreground transition-colors">How It Works</a></li>
+              <li><a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Contact Us</a></li>
             </ul>
           </div>

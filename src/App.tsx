@@ -17,6 +17,8 @@ import SupportChat from "./pages/SupportChat";
 import DailyCheckin from "./pages/DailyCheckin";
 import CheckinHistory from "./pages/CheckinHistory";
 import LocalResources from "./pages/LocalResources";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +53,8 @@ const App = () => (
                   <Route path="/chat" element={<SupportChat />} />
                   <Route path="/daily-checkin" element={<DailyCheckin />} />
                   <Route path="/checkin-history" element={<CheckinHistory />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-of-service" element={<TermsOfService />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
