@@ -36,10 +36,12 @@ const About = () => {
           {/* Mission Section */}
           <section className="mb-16">
             <div className="max-w-3xl mx-auto text-center bg-sky-900">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Heart className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our Mission</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                  <Heart className="w-5 h-5 text-primary-foreground" />
+                </div>
+                Our Mission
+              </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 We believe that everyone deserves access to compassionate, judgment-free support on their personal journey. 
                 WayFinder combines cutting-edge AI technology with evidence-based principles to provide 24/7 
