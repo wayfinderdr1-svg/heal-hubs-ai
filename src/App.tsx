@@ -12,6 +12,7 @@ import Auth from "./pages/Auth";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Support from "./pages/Support";
+import OurSupport from "./pages/OurSupport";
 import SupportChat from "./pages/SupportChat";
 import DailyCheckin from "./pages/DailyCheckin";
 import CheckinHistory from "./pages/CheckinHistory";
@@ -43,6 +44,7 @@ const App = () => (
                   <Route path="/auth" element={<Auth />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/how-it-works" element={<HowItWorks />} />
+                  <Route path="/our-support" element={<OurSupport />} />
                   <Route path="/support" element={<Support />} />
                   <Route path="/chat" element={<SupportChat />} />
                   <Route path="/daily-checkin" element={<DailyCheckin />} />

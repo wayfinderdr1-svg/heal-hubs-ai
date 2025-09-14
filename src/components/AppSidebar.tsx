@@ -1,4 +1,4 @@
-import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User } from "lucide-react";
+import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
@@ -14,6 +14,10 @@ const publicItems = [{
   title: "About",
   url: "/about",
   icon: Info
+}, {
+  title: "Our Support",
+  url: "/our-support", 
+  icon: Route
 }, {
   title: "How It Works",
   url: "/how-it-works",
