@@ -28,12 +28,14 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link to="/chat">
-                <Button variant="hero" size="lg" className="gap-2">
-                  <MessageCircle className="w-5 h-5" />
-                  Start Support Chat
-                </Button>
-              </Link>
+              <Button asChild variant="hero" size="lg" className="gap-2">
+                <Link to="/chat">
+                  <span className="inline-flex items-center gap-2">
+                    <MessageCircle className="w-5 h-5" />
+                    Start Support Chat
+                  </span>
+                </Link>
+              </Button>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8">
