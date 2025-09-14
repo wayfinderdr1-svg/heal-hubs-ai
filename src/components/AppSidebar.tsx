@@ -15,10 +15,6 @@ const publicItems = [{
   url: "/about",
   icon: Info
 }, {
-  title: "Our Support",
-  url: "/our-support", 
-  icon: Route
-}, {
   title: "How It Works",
   url: "/how-it-works",
   icon: HelpCircle
@@ -30,6 +26,10 @@ const publicItems = [{
   title: "Local Resources",
   url: "/local-resources",
   icon: MapPin
+}, {
+  title: "How We Help",
+  url: "/our-support", 
+  icon: Route
 }];
 const authenticatedItems = [{
   title: "Daily Check-in",
