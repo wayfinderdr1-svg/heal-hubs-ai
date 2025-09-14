@@ -75,6 +75,51 @@ const LocalResources = () => {
         distance: "1.1 miles"
       }
     ],
+    "29607": [
+      {
+        id: "sc1",
+        name: "Greenville County Mental Health Center",
+        type: "treatment",
+        address: "1200 Wade Hampton Blvd, Greenville, SC 29607",
+        phone: "(864) 555-0401",
+        website: "https://gcmhc.org",
+        description: "Community mental health services serving Greenville County with individual and family therapy programs.",
+        hours: "Mon-Fri 8AM-6PM",
+        distance: "2.1 miles"
+      },
+      {
+        id: "sc2",
+        name: "Mauldin Recovery Support Group",
+        type: "support_group",
+        address: "105 E Butler Rd, Mauldin, SC 29662",
+        phone: "(864) 555-0402",
+        description: "Weekly peer support meetings for individuals and families affected by mental health challenges.",
+        hours: "Thursdays 7PM-8:30PM",
+        distance: "1.3 miles"
+      },
+      {
+        id: "sc3",
+        name: "Upstate Mental Health Education Center",
+        type: "education",
+        address: "900 S Main St, Greenville, SC 29601",
+        phone: "(864) 555-0403",
+        website: "https://upstatementalhealth.org",
+        description: "Educational workshops on stress management, coping skills, and mental wellness for the Upstate community.",
+        hours: "Mon-Wed 9AM-5PM, Sat 10AM-2PM",
+        distance: "3.2 miles"
+      },
+      {
+        id: "sc4",
+        name: "Bon Secours St. Francis Behavioral Health",
+        type: "treatment",
+        address: "1 St Francis Dr, Greenville, SC 29601",
+        phone: "(864) 255-1000",
+        website: "https://stfrancishealth.org/behavioral-health",
+        description: "Full-service behavioral health hospital providing inpatient and outpatient mental health services.",
+        hours: "24/7 Emergency Services",
+        distance: "4.1 miles"
+      }
+    ],
     "default": [
       {
         id: "1",
@@ -143,9 +188,11 @@ const LocalResources = () => {
     const zipResources = resourcesByZip[zip];
     if (zipResources) {
       setResources(zipResources);
+      console.log(`Loaded ${zipResources.length} resources for zip code ${zip}`);
     } else {
       // Use default resources if no specific ones found
       setResources(resourcesByZip["default"]);
+      console.log(`No specific resources found for zip ${zip}, using default resources`);
     }
   };
 
@@ -164,9 +211,11 @@ const LocalResources = () => {
               setZipCode(zip);
               setLocation(`Zip Code: ${zip}`);
               loadResourcesForZip(zip);
+              console.log(`Successfully detected zip code: ${zip}`);
             } else {
               setLocation("Unable to determine zip code");
               setZipCode("");
+              console.log("Failed to extract zip code from location data");
             }
           } catch (error) {
             console.error("Error processing location:", error);
@@ -274,7 +323,11 @@ const LocalResources = () => {
                   </h1>
                   <p className="text-xl text-white/90 mb-6">
                     Find treatment centers, support groups, and educational resources in your area
-                    {zipCode && <span className="block text-lg font-medium text-white mt-2">Showing resources for zip code: {zipCode}</span>}
+                    {zipCode && (
+                      <span className="block text-lg font-medium text-white mt-2 bg-primary/20 rounded-lg px-4 py-2 backdrop-blur-sm">
+                        📍 Showing {resources.length} resources for zip code: {zipCode}
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
