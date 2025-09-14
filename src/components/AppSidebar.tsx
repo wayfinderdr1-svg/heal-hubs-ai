@@ -1,4 +1,4 @@
-import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route, LifeBuoy, LogOut, MapPin, Mail, HelpingHand } from "lucide-react";
+import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route, LifeBuoy, LogOut, MapPin, Mail, BookOpen } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
@@ -37,7 +37,7 @@ const publicItems = [{
 }, {
   title: "FAQ",
   url: "/faq",
-  icon: HelpCircle
+  icon: BookOpen
 }];
 const authenticatedItems = [{
   title: "Daily Check-in",
