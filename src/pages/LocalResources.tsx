@@ -20,99 +20,190 @@ interface Resource {
 
 const LocalResources = () => {
   const [location, setLocation] = useState<string>("");
+  const [zipCode, setZipCode] = useState<string>("");
   const [isLoadingLocation, setIsLoadingLocation] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [resources, setResources] = useState<Resource[]>([]);
 
-  // Mock data - in a real app, this would come from an API
-  const mockResources: Resource[] = [
-    {
-      id: "1",
-      name: "Community Mental Health Center",
-      type: "treatment",
-      address: "123 Main St, Your City, State 12345",
-      phone: "(555) 123-4567",
-      website: "https://example.com",
-      description: "Comprehensive mental health services including individual therapy, group therapy, and psychiatric care.",
-      hours: "Mon-Fri 8AM-6PM",
-      distance: "0.5 miles"
-    },
-    {
-      id: "2",
-      name: "Recovery Support Circle",
-      type: "support_group",
-      address: "456 Oak Ave, Your City, State 12345",
-      phone: "(555) 987-6543",
-      description: "Weekly peer support meetings for individuals in recovery. Open to all, no commitment required.",
-      hours: "Tuesdays 7PM-8:30PM",
-      distance: "1.2 miles"
-    },
-    {
-      id: "3",
-      name: "Wellness Education Center",
-      type: "education",
-      address: "789 Pine St, Your City, State 12345",
-      phone: "(555) 456-7890",
-      website: "https://wellness-education.com",
-      description: "Educational workshops, seminars, and resources on mental health, coping strategies, and wellness.",
-      hours: "Mon-Thu 9AM-5PM, Sat 10AM-2PM",
-      distance: "2.1 miles"
-    },
-    {
-      id: "4",
-      name: "City Hospital Behavioral Health",
-      type: "treatment",
-      address: "321 Hospital Dr, Your City, State 12345",
-      phone: "(555) 234-5678",
-      website: "https://cityhospital.com/behavioral-health",
-      description: "Inpatient and outpatient behavioral health services, crisis intervention, and specialized programs.",
-      hours: "24/7 Emergency, Outpatient Mon-Fri 7AM-7PM",
-      distance: "3.4 miles"
-    },
-    {
-      id: "5",
-      name: "Young Adults Support Network",
-      type: "support_group",
-      address: "654 College Rd, Your City, State 12345",
-      description: "Support group specifically for young adults (18-25) dealing with mental health challenges.",
-      hours: "Thursdays 6PM-7:30PM",
-      distance: "1.8 miles"
-    },
-    {
-      id: "6",
-      name: "Community Library - Mental Health Resources",
-      type: "education",
-      address: "987 Library Ln, Your City, State 12345",
-      phone: "(555) 345-6789",
-      website: "https://communitylibrary.org/mental-health",
-      description: "Free mental health books, online resources, and monthly educational seminars.",
-      hours: "Mon-Sat 9AM-8PM, Sun 12PM-5PM",
-      distance: "0.8 miles"
-    }
-  ];
+  // Mock data organized by zip code - in a real app, this would come from an API
+  const resourcesByZip: Record<string, Resource[]> = {
+    "10001": [
+      {
+        id: "nyc1",
+        name: "Manhattan Mental Health Center",
+        type: "treatment",
+        address: "123 Broadway, New York, NY 10001",
+        phone: "(212) 555-0101",
+        website: "https://manhattanmhc.org",
+        description: "Comprehensive mental health services in the heart of Manhattan with specialized programs for anxiety and depression.",
+        hours: "Mon-Fri 8AM-8PM, Sat 9AM-5PM",
+        distance: "0.3 miles"
+      },
+      {
+        id: "nyc2",
+        name: "Downtown Recovery Circle",
+        type: "support_group",
+        address: "456 Wall St, New York, NY 10001",
+        phone: "(212) 555-0202",
+        description: "Peer support meetings for professionals dealing with work-related stress and mental health challenges.",
+        hours: "Wednesdays 6PM-7:30PM",
+        distance: "0.7 miles"
+      }
+    ],
+    "90210": [
+      {
+        id: "bh1",
+        name: "Beverly Hills Wellness Center",
+        type: "treatment",
+        address: "789 Rodeo Dr, Beverly Hills, CA 90210",
+        phone: "(310) 555-0301",
+        website: "https://bhwellness.com",
+        description: "Luxury mental health treatment facility offering personalized therapy and wellness programs.",
+        hours: "Mon-Sat 7AM-9PM",
+        distance: "0.2 miles"
+      },
+      {
+        id: "bh2",
+        name: "West Coast Education Hub",
+        type: "education",
+        address: "321 Sunset Blvd, Beverly Hills, CA 90210",
+        phone: "(310) 555-0302",
+        website: "https://westcoasteducation.org",
+        description: "Mental health education workshops, stress management classes, and wellness seminars.",
+        hours: "Tue-Thu 10AM-6PM, Sat 9AM-3PM",
+        distance: "1.1 miles"
+      }
+    ],
+    "default": [
+      {
+        id: "1",
+        name: "Community Mental Health Center",
+        type: "treatment",
+        address: "123 Main St, Your City, State 12345",
+        phone: "(555) 123-4567",
+        website: "https://example.com",
+        description: "Comprehensive mental health services including individual therapy, group therapy, and psychiatric care.",
+        hours: "Mon-Fri 8AM-6PM",
+        distance: "0.5 miles"
+      },
+      {
+        id: "2",
+        name: "Recovery Support Circle",
+        type: "support_group",
+        address: "456 Oak Ave, Your City, State 12345",
+        phone: "(555) 987-6543",
+        description: "Weekly peer support meetings for individuals in recovery. Open to all, no commitment required.",
+        hours: "Tuesdays 7PM-8:30PM",
+        distance: "1.2 miles"
+      },
+      {
+        id: "3",
+        name: "Wellness Education Center",
+        type: "education",
+        address: "789 Pine St, Your City, State 12345",
+        phone: "(555) 456-7890",
+        website: "https://wellness-education.com",
+        description: "Educational workshops, seminars, and resources on mental health, coping strategies, and wellness.",
+        hours: "Mon-Thu 9AM-5PM, Sat 10AM-2PM",
+        distance: "2.1 miles"
+      }
+    ]
+  };
 
   useEffect(() => {
-    // Simulate loading resources
-    setResources(mockResources);
+    // Load default resources on component mount
+    setResources(resourcesByZip["default"]);
   }, []);
+
+  const reverseGeocode = async (lat: number, lon: number): Promise<string> => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
+      );
+      const data = await response.json();
+      
+      if (data && data.address) {
+        const postcode = data.address.postcode || data.address.zip_code;
+        if (postcode) {
+          // Extract just the 5-digit zip code
+          const zipMatch = postcode.match(/(\d{5})/);
+          return zipMatch ? zipMatch[1] : "";
+        }
+      }
+      return "";
+    } catch (error) {
+      console.error("Reverse geocoding failed:", error);
+      return "";
+    }
+  };
+
+  const loadResourcesForZip = (zip: string) => {
+    // Check if we have specific resources for this zip code
+    const zipResources = resourcesByZip[zip];
+    if (zipResources) {
+      setResources(zipResources);
+    } else {
+      // Use default resources if no specific ones found
+      setResources(resourcesByZip["default"]);
+    }
+  };
 
   const getLocation = () => {
     setIsLoadingLocation(true);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          // In a real app, you'd reverse geocode this to get the address
-          setLocation("Your Current Location");
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          
+          try {
+            // Get zip code from coordinates
+            const zip = await reverseGeocode(latitude, longitude);
+            
+            if (zip) {
+              setZipCode(zip);
+              setLocation(`Zip Code: ${zip}`);
+              loadResourcesForZip(zip);
+            } else {
+              setLocation("Unable to determine zip code");
+              setZipCode("");
+            }
+          } catch (error) {
+            console.error("Error processing location:", error);
+            setLocation("Error processing location");
+            setZipCode("");
+          }
+          
           setIsLoadingLocation(false);
         },
         (error) => {
           console.error("Error getting location:", error);
-          setLocation("Location access denied");
+          let errorMessage = "Location access denied";
+          
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage = "Location access denied. Please enable location services.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              errorMessage = "Location information unavailable.";
+              break;
+            case error.TIMEOUT:
+              errorMessage = "Location request timed out.";
+              break;
+          }
+          
+          setLocation(errorMessage);
+          setZipCode("");
           setIsLoadingLocation(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000 // 5 minutes
         }
       );
     } else {
-      setLocation("Geolocation not supported");
+      setLocation("Geolocation not supported by this browser");
+      setZipCode("");
       setIsLoadingLocation(false);
     }
   };
@@ -173,6 +264,7 @@ const LocalResources = () => {
             </h1>
             <p className="text-xl text-muted-foreground mb-6">
               Find treatment centers, support groups, and educational resources in your area
+              {zipCode && <span className="block text-lg font-medium text-primary mt-2">Showing resources for zip code: {zipCode}</span>}
             </p>
             
             {/* Location and Search */}
