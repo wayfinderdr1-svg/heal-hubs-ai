@@ -64,7 +64,7 @@ const Support = () => {
                   <p className="text-muted-foreground mb-4">
                     24/7 crisis support via text message
                   </p>
-                  <p className="font-semibold text-foreground mb-2">Text HOME to 741741</p>
+                  <a href="sms:741741?body=HOME" className="font-semibold text-primary hover:underline mb-2 block">Text HOME to 741741</a>
                   <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
                 </CardContent>
               </Card>
@@ -80,7 +80,7 @@ const Support = () => {
                   <p className="text-muted-foreground mb-4">
                     24/7 suicide prevention support
                   </p>
-                  <p className="font-semibold text-foreground mb-2">Call or text 988</p>
+                  <a href="tel:988" className="font-semibold text-primary hover:underline mb-2 block">Call or text 988</a>
                   <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
                 </CardContent>
               </Card>
@@ -96,7 +96,7 @@ const Support = () => {
                   <p className="text-muted-foreground mb-4">
                     Treatment referral and information
                   </p>
-                  <p className="font-semibold text-foreground mb-2">1-800-662-4357</p>
+                  <a href="tel:18006624357" className="font-semibold text-primary hover:underline mb-2 block">1-800-662-4357</a>
                   <p className="text-sm text-muted-foreground">Free, confidential, 24/7</p>
                 </CardContent>
               </Card>
