@@ -38,8 +38,8 @@ const Support = () => {
           <section className="mb-16">
             <Alert className="border-destructive/20 bg-destructive/5 mb-8">
               <AlertCircle className="h-4 w-4 text-destructive" />
-              <AlertDescription className="text-destructive font-medium">
-                If you're experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
+              <AlertDescription className="text-white font-medium">
+                If you&apos;re experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
               </AlertDescription>
             </Alert>
 
