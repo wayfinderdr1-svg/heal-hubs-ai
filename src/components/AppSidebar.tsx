@@ -1,4 +1,4 @@
-import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route } from "lucide-react";
+import { Home, MessageCircle, Calendar, History, Info, HelpCircle, LogIn, User, Route, LifeBuoy } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/AuthContext";
@@ -25,7 +25,7 @@ const publicItems = [{
 }, {
   title: "Support",
   url: "/support",
-  icon: HelpCircle
+  icon: LifeBuoy
 }];
 const authenticatedItems = [{
   title: "Daily Check-in",

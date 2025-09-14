@@ -12,10 +12,10 @@ import supportCrisis from "@/assets/support-crisis.jpg";
 const Support = () => {
   return <div className="min-h-screen bg-background">
       
-      <main className="pb-12">
+      <main className="pb-8">
         <div className="container mx-auto px-4 bg-cyan-900">
           {/* Hero Section */}
-          <section className="text-center mb-16 relative">
+          <section className="text-center mb-12 relative">
             <div className="relative rounded-2xl overflow-hidden mb-8">
               <img 
                 src={heroSupport} 
@@ -35,9 +35,9 @@ const Support = () => {
           </section>
 
           {/* Emergency Resources */}
-          <section className="mb-16">
-            <Alert className="border-destructive/20 bg-destructive/5 mb-8">
-              <AlertCircle className="h-4 w-4 text-destructive" />
+          <section className="mb-12">
+            <Alert className="border-destructive/20 bg-destructive/5 mb-6">
+              <AlertCircle className="h-4 w-4 text-red-500" />
               <AlertDescription className="text-white font-medium">
                 If you&apos;re experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
               </AlertDescription>
@@ -53,7 +53,7 @@ const Support = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Crisis Resources</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Crisis Resources</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
@@ -108,8 +108,8 @@ const Support = () => {
           </section>
 
           {/* Support Options */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">How We Support You</h2>
+          <section className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">How We Support You</h2>
             <div className="max-w-5xl mx-auto space-y-8">
 
               <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-accent/20 overflow-hidden">
@@ -191,7 +191,7 @@ const Support = () => {
           </section>
 
           {/* Contact Section */}
-          <section className="mb-16">
+          <section className="mb-12">
             <div className="flex items-center justify-center mb-8">
               <div className="relative w-32 h-32 rounded-full overflow-hidden">
                 <img 
@@ -202,7 +202,7 @@ const Support = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Get in Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Get in Touch</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
@@ -253,7 +253,7 @@ const Support = () => {
 
           {/* FAQ Section */}
           <section>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Frequently Asked Questions</h2>
             <div className="max-w-4xl mx-auto space-y-6">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
