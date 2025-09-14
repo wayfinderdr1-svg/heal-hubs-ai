@@ -43,17 +43,10 @@ const Support = () => {
               </AlertDescription>
             </Alert>
 
-            <div className="flex items-center justify-center mb-8">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden">
-                <img 
-                  src={supportCrisis} 
-                  alt="Crisis support resources"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-              </div>
+            <div className="flex items-center justify-center mb-6">
+              <AlertCircle className="w-16 h-16 text-red-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Crisis Resources</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">Crisis Resources</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
@@ -109,7 +102,7 @@ const Support = () => {
 
           {/* Support Options */}
           <section className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">How We Support You</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">How We Support You</h2>
             <div className="max-w-5xl mx-auto space-y-8">
 
               <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-accent/20 overflow-hidden">
@@ -192,8 +185,8 @@ const Support = () => {
 
           {/* Contact Section */}
           <section className="mb-12">
-            <div className="flex items-center justify-center mb-8">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden">
+            <div className="flex items-center justify-center mb-6">
+              <div className="relative w-24 h-24 rounded-full overflow-hidden">
                 <img 
                   src={supportContact} 
                   alt="Contact support team"
@@ -202,7 +195,7 @@ const Support = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Get in Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">Get in Touch</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
@@ -253,7 +246,7 @@ const Support = () => {
 
           {/* FAQ Section */}
           <section>
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">Frequently Asked Questions</h2>
             <div className="max-w-4xl mx-auto space-y-6">
               
               <Card className="bg-card/50 backdrop-blur border-accent/20">
