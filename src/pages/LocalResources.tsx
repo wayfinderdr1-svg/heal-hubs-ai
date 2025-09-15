@@ -268,10 +268,9 @@ const LocalResources = () => {
     }
   };
 
-  const handleZipKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleZipSearch();
-    }
+  const handleZipSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleZipSearch();
   };
 
   const filteredResources = resources.filter(resource =>
@@ -362,24 +361,23 @@ const LocalResources = () => {
                   {isLoadingLocation ? "Getting Location..." : "Use My Location"}
                 </Button>
                 <span className="text-sm text-muted-foreground">or</span>
-                <div className="flex items-center gap-2">
+                <form onSubmit={handleZipSubmit} className="flex items-center gap-2">
                   <Input
                     placeholder="Enter zip code (e.g. 10001)"
                     value={zipSearchQuery}
                     onChange={(e) => setZipSearchQuery(e.target.value.replace(/\D/g, '').slice(0, 5))}
-                    onKeyPress={handleZipKeyPress}
                     className="w-48"
                     maxLength={5}
                   />
                   <Button
-                    onClick={handleZipSearch}
+                    type="submit"
                     disabled={!zipSearchQuery || zipSearchQuery.length !== 5}
                     variant="default"
                     size="sm"
                   >
                     Search
                   </Button>
-                </div>
+                </form>
               </div>
               
               {location && (
