@@ -6,18 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import supportResources from "@/assets/support-resources.jpg";
+import { ResourceService, type Resource } from "@/services/resourceService";
 
-interface Resource {
-  id: string;
-  name: string;
-  type: "treatment" | "support_group" | "education";
-  address: string;
-  phone?: string;
-  website?: string;
-  description: string;
-  hours?: string;
-  distance?: string;
-}
 
 const LocalResources = () => {
   const [location, setLocation] = useState<string>("");
@@ -26,197 +16,11 @@ const LocalResources = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [zipSearchQuery, setZipSearchQuery] = useState("");
   const [resources, setResources] = useState<Resource[]>([]);
-
-  // Mock data organized by zip code - in a real app, this would come from an API
-  const resourcesByZip: Record<string, Resource[]> = {
-    "10001": [
-      {
-        id: "nyc1",
-        name: "Manhattan Mental Health Center",
-        type: "treatment",
-        address: "123 Broadway, New York, NY 10001",
-        phone: "(212) 555-0101",
-        website: "https://manhattanmhc.org",
-        description: "Comprehensive mental health services in the heart of Manhattan with specialized programs for anxiety and depression.",
-        hours: "Mon-Fri 8AM-8PM, Sat 9AM-5PM",
-        distance: "0.3 miles"
-      },
-      {
-        id: "nyc2",
-        name: "Downtown Recovery Circle",
-        type: "support_group",
-        address: "456 Wall St, New York, NY 10001",
-        phone: "(212) 555-0202",
-        description: "Peer support meetings for professionals dealing with work-related stress and mental health challenges.",
-        hours: "Wednesdays 6PM-7:30PM",
-        distance: "0.7 miles"
-      }
-    ],
-    "30309": [
-      {
-        id: "atl1",
-        name: "Atlanta Mental Health Associates",
-        type: "treatment",
-        address: "1234 Peachtree St, Atlanta, GA 30309",
-        phone: "(404) 555-0101",
-        website: "https://atlantamha.org",
-        description: "Full-service mental health clinic serving the Atlanta metro area with individual, group, and family therapy.",
-        hours: "Mon-Fri 8AM-7PM, Sat 9AM-4PM",
-        distance: "0.5 miles"
-      },
-      {
-        id: "atl2",
-        name: "Midtown Support Network",
-        type: "support_group",
-        address: "567 Juniper St, Atlanta, GA 30309",
-        phone: "(404) 555-0202",
-        description: "Weekly peer support groups for anxiety, depression, and life transitions in a welcoming environment.",
-        hours: "Tuesdays 7PM-8:30PM, Saturdays 10AM-11:30AM",
-        distance: "0.8 miles"
-      },
-      {
-        id: "atl3",
-        name: "Georgia Mental Health Education Center",
-        type: "education",
-        address: "890 Spring St, Atlanta, GA 30309",
-        phone: "(404) 555-0203",
-        website: "https://gmhec.org",
-        description: "Educational workshops on mental health awareness, stress management, and wellness strategies.",
-        hours: "Mon-Thu 9AM-6PM, Sat 10AM-3PM",
-        distance: "1.2 miles"
-      }
-    ],
-    "30312": [
-      {
-        id: "atl4",
-        name: "Downtown Atlanta Counseling Center",
-        type: "treatment",
-        address: "123 Marietta St, Atlanta, GA 30312",
-        phone: "(404) 555-0301",
-        website: "https://dacc.org",
-        description: "Community mental health services with sliding scale fees and specialized trauma therapy programs.",
-        hours: "Mon-Fri 8AM-6PM",
-        distance: "1.0 miles"
-      },
-      {
-        id: "atl5",
-        name: "Urban Recovery Circle",
-        type: "support_group",
-        address: "456 Decatur St, Atlanta, GA 30312",
-        phone: "(404) 555-0302",
-        description: "Diverse support groups for young professionals dealing with stress, anxiety, and career transitions.",
-        hours: "Thursdays 6:30PM-8PM",
-        distance: "1.5 miles"
-      }
-    ],
-    "90210": [
-      {
-        id: "bh1",
-        name: "Beverly Hills Wellness Center",
-        type: "treatment",
-        address: "789 Rodeo Dr, Beverly Hills, CA 90210",
-        phone: "(310) 555-0301",
-        website: "https://bhwellness.com",
-        description: "Luxury mental health treatment facility offering personalized therapy and wellness programs.",
-        hours: "Mon-Sat 7AM-9PM",
-        distance: "0.2 miles"
-      },
-      {
-        id: "bh2",
-        name: "West Coast Education Hub",
-        type: "education",
-        address: "321 Sunset Blvd, Beverly Hills, CA 90210",
-        phone: "(310) 555-0302",
-        website: "https://westcoasteducation.org",
-        description: "Mental health education workshops, stress management classes, and wellness seminars.",
-        hours: "Tue-Thu 10AM-6PM, Sat 9AM-3PM",
-        distance: "1.1 miles"
-      }
-    ],
-    "29607": [
-      {
-        id: "sc1",
-        name: "Greenville County Mental Health Center",
-        type: "treatment",
-        address: "1200 Wade Hampton Blvd, Greenville, SC 29607",
-        phone: "(864) 555-0401",
-        website: "https://gcmhc.org",
-        description: "Community mental health services serving Greenville County with individual and family therapy programs.",
-        hours: "Mon-Fri 8AM-6PM",
-        distance: "2.1 miles"
-      },
-      {
-        id: "sc2",
-        name: "Mauldin Recovery Support Group",
-        type: "support_group",
-        address: "105 E Butler Rd, Mauldin, SC 29662",
-        phone: "(864) 555-0402",
-        description: "Weekly peer support meetings for individuals and families affected by mental health challenges.",
-        hours: "Thursdays 7PM-8:30PM",
-        distance: "1.3 miles"
-      },
-      {
-        id: "sc3",
-        name: "Upstate Mental Health Education Center",
-        type: "education",
-        address: "900 S Main St, Greenville, SC 29601",
-        phone: "(864) 555-0403",
-        website: "https://upstatementalhealth.org",
-        description: "Educational workshops on stress management, coping skills, and mental wellness for the Upstate community.",
-        hours: "Mon-Wed 9AM-5PM, Sat 10AM-2PM",
-        distance: "3.2 miles"
-      },
-      {
-        id: "sc4",
-        name: "Bon Secours St. Francis Behavioral Health",
-        type: "treatment",
-        address: "1 St Francis Dr, Greenville, SC 29601",
-        phone: "(864) 255-1000",
-        website: "https://stfrancishealth.org/behavioral-health",
-        description: "Full-service behavioral health hospital providing inpatient and outpatient mental health services.",
-        hours: "24/7 Emergency Services",
-        distance: "4.1 miles"
-      }
-    ],
-    "default": [
-      {
-        id: "1",
-        name: "Community Mental Health Center",
-        type: "treatment",
-        address: "123 Main St, Your City, State 12345",
-        phone: "(555) 123-4567",
-        website: "https://example.com",
-        description: "Comprehensive mental health services including individual therapy, group therapy, and psychiatric care.",
-        hours: "Mon-Fri 8AM-6PM",
-        distance: "0.5 miles"
-      },
-      {
-        id: "2",
-        name: "Recovery Support Circle",
-        type: "support_group",
-        address: "456 Oak Ave, Your City, State 12345",
-        phone: "(555) 987-6543",
-        description: "Weekly peer support meetings for individuals in recovery. Open to all, no commitment required.",
-        hours: "Tuesdays 7PM-8:30PM",
-        distance: "1.2 miles"
-      },
-      {
-        id: "3",
-        name: "Wellness Education Center",
-        type: "education",
-        address: "789 Pine St, Your City, State 12345",
-        phone: "(555) 456-7890",
-        website: "https://wellness-education.com",
-        description: "Educational workshops, seminars, and resources on mental health, coping strategies, and wellness.",
-        hours: "Mon-Thu 9AM-5PM, Sat 10AM-2PM",
-        distance: "2.1 miles"
-      }
-    ]
-  };
+  const [isLoadingResources, setIsLoadingResources] = useState(false);
 
   useEffect(() => {
     // Load default resources on component mount
-    setResources(resourcesByZip["default"]);
+    loadResourcesForZip("default");
   }, []);
 
   const reverseGeocode = async (lat: number, lon: number): Promise<string> => {
@@ -241,17 +45,18 @@ const LocalResources = () => {
     }
   };
 
-  const loadResourcesForZip = (zip: string) => {
-    // Check if we have specific resources for this zip code
-    const zipResources = resourcesByZip[zip];
-    if (zipResources) {
-      // Clone array to ensure state reference changes and UI re-renders
-      setResources([...zipResources]);
-      console.log(`Loaded ${zipResources.length} resources for zip code ${zip}`);
-    } else {
-      // Use default resources if no specific ones found (clone to trigger re-render)
-      setResources([...resourcesByZip["default"]]);
-      console.log(`No specific resources found for zip ${zip}, using default resources`);
+  const loadResourcesForZip = async (zip: string) => {
+    setIsLoadingResources(true);
+    try {
+      const resourceList = await ResourceService.getResourcesByZip(zip);
+      setResources(resourceList);
+    } catch (error) {
+      console.error("Error loading resources:", error);
+      // Fallback to default resources
+      const defaultResources = await ResourceService.getResourcesByZip("default");
+      setResources(defaultResources);
+    } finally {
+      setIsLoadingResources(false);
     }
   };
 
@@ -335,11 +140,7 @@ const LocalResources = () => {
     handleZipSearch();
   };
 
-  const filteredResources = resources.filter(resource =>
-    resource.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    resource.address.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredResources = ResourceService.searchResources(resources, searchQuery);
 
   const getResourceIcon = (type: string) => {
     switch (type) {
@@ -466,7 +267,13 @@ const LocalResources = () => {
           {/* Resources Grid */}
           <section>
             <div className="grid gap-6 max-w-6xl mx-auto">
-              {filteredResources.length === 0 ? (
+              {isLoadingResources ? (
+                <Card className="bg-card/50 backdrop-blur border-accent/20">
+                  <CardContent className="p-8 text-center">
+                    <p className="text-muted-foreground">Loading resources...</p>
+                  </CardContent>
+                </Card>
+              ) : filteredResources.length === 0 ? (
                 <Card className="bg-card/50 backdrop-blur border-accent/20">
                   <CardContent className="p-8 text-center">
                     <p className="text-muted-foreground">No resources found matching your search.</p>
