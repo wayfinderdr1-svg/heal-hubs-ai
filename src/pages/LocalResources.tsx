@@ -52,6 +52,63 @@ const LocalResources = () => {
         distance: "0.7 miles"
       }
     ],
+    "30309": [
+      {
+        id: "atl1",
+        name: "Atlanta Mental Health Associates",
+        type: "treatment",
+        address: "1234 Peachtree St, Atlanta, GA 30309",
+        phone: "(404) 555-0101",
+        website: "https://atlantamha.org",
+        description: "Full-service mental health clinic serving the Atlanta metro area with individual, group, and family therapy.",
+        hours: "Mon-Fri 8AM-7PM, Sat 9AM-4PM",
+        distance: "0.5 miles"
+      },
+      {
+        id: "atl2",
+        name: "Midtown Support Network",
+        type: "support_group",
+        address: "567 Juniper St, Atlanta, GA 30309",
+        phone: "(404) 555-0202",
+        description: "Weekly peer support groups for anxiety, depression, and life transitions in a welcoming environment.",
+        hours: "Tuesdays 7PM-8:30PM, Saturdays 10AM-11:30AM",
+        distance: "0.8 miles"
+      },
+      {
+        id: "atl3",
+        name: "Georgia Mental Health Education Center",
+        type: "education",
+        address: "890 Spring St, Atlanta, GA 30309",
+        phone: "(404) 555-0203",
+        website: "https://gmhec.org",
+        description: "Educational workshops on mental health awareness, stress management, and wellness strategies.",
+        hours: "Mon-Thu 9AM-6PM, Sat 10AM-3PM",
+        distance: "1.2 miles"
+      }
+    ],
+    "30312": [
+      {
+        id: "atl4",
+        name: "Downtown Atlanta Counseling Center",
+        type: "treatment",
+        address: "123 Marietta St, Atlanta, GA 30312",
+        phone: "(404) 555-0301",
+        website: "https://dacc.org",
+        description: "Community mental health services with sliding scale fees and specialized trauma therapy programs.",
+        hours: "Mon-Fri 8AM-6PM",
+        distance: "1.0 miles"
+      },
+      {
+        id: "atl5",
+        name: "Urban Recovery Circle",
+        type: "support_group",
+        address: "456 Decatur St, Atlanta, GA 30312",
+        phone: "(404) 555-0302",
+        description: "Diverse support groups for young professionals dealing with stress, anxiety, and career transitions.",
+        hours: "Thursdays 6:30PM-8PM",
+        distance: "1.5 miles"
+      }
+    ],
     "90210": [
       {
         id: "bh1",
@@ -262,10 +319,14 @@ const LocalResources = () => {
 
   const handleZipSearch = () => {
     const cleanZip = zipSearchQuery.trim();
+    console.log(`Searching for zip: ${cleanZip}`);
     if (cleanZip && /^\d{5}$/.test(cleanZip)) {
       setZipCode(cleanZip);
       setLocation(`Zip Code: ${cleanZip}`);
       loadResourcesForZip(cleanZip);
+      console.log(`Search completed for zip: ${cleanZip}`);
+    } else {
+      console.log(`Invalid zip code format: ${cleanZip}`);
     }
   };
 
