@@ -188,11 +188,12 @@ const LocalResources = () => {
     // Check if we have specific resources for this zip code
     const zipResources = resourcesByZip[zip];
     if (zipResources) {
-      setResources(zipResources);
+      // Clone array to ensure state reference changes and UI re-renders
+      setResources([...zipResources]);
       console.log(`Loaded ${zipResources.length} resources for zip code ${zip}`);
     } else {
-      // Use default resources if no specific ones found
-      setResources(resourcesByZip["default"]);
+      // Use default resources if no specific ones found (clone to trigger re-render)
+      setResources([...resourcesByZip["default"]]);
       console.log(`No specific resources found for zip ${zip}, using default resources`);
     }
   };
