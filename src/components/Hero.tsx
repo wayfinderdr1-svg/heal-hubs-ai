@@ -3,6 +3,7 @@ import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
+import titleImage from "@/assets/title-finding-your-way-forward-silver.png";
 
 const Hero = () => {
   const { user, signOut } = useAuth();
@@ -10,13 +11,18 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
         <div className="flex flex-col items-start text-left space-y-4 sm:space-y-5">
           {/* Logo and Title Section */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-2">
+          <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-4 mb-2">
             <div className="relative flex items-start justify-start">
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
               <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-24 h-24 sm:w-32 sm:h-32 object-contain" />
             </div>
             
             <div className="space-y-1 sm:space-y-2">
+              <img 
+                src={titleImage} 
+                alt="Finding Your Way Forward - Your path to growth and support" 
+                className="w-full max-w-[16rem] sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
+              />
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
                 Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
               </p>
