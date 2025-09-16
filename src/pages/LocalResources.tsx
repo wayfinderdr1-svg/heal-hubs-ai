@@ -223,6 +223,7 @@ const LocalResources = () => {
                   <MapPin className="w-4 h-4" />
                   {isLoadingLocation ? "Getting Location..." : "Use My Location"}
                 </Button>
+                {/* Hidden zip code search
                 <span className="text-sm text-muted-foreground">or</span>
                 <form onSubmit={handleZipSubmit} className="flex items-center gap-2">
                   <Input
@@ -241,6 +242,7 @@ const LocalResources = () => {
                     Search
                   </Button>
                 </form>
+                */}
               </div>
               
               {location && (
@@ -252,6 +254,7 @@ const LocalResources = () => {
                 </div>
               )}
               
+              {/* Hidden resource search
               <div className="relative">
                 <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                 <Input
@@ -261,6 +264,7 @@ const LocalResources = () => {
                   className="pl-10"
                 />
               </div>
+              */}
             </div>
           </section>
 
