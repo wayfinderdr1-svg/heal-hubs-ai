@@ -18,8 +18,7 @@ const Hero = () => {
             
             <div className="space-y-1 sm:space-y-2">
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
-                Get instant, compassionate support with AI-powered guidance for your personal growth journey. 
-                Available 24/7 when you need it most.
+                Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
               </p>
             </div>
           </div>
