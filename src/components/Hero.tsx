@@ -16,11 +16,11 @@ const Hero = () => {
               <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-24 h-24 sm:w-32 sm:h-32 object-contain" />
             </div>
             
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-2 sm:space-y-3">
               <img 
                 src={titleImage} 
                 alt="Finding the Way Forward - Your path to growth and support" 
-                className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
+                className="w-full max-w-[16rem] sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
               />
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
                 Get instant, compassionate support with AI-powered guidance for your personal growth journey. 
