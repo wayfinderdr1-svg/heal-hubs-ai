@@ -3,6 +3,7 @@ import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
+import titleImage from "@/assets/title-finding-the-way-forward.png";
 const Hero = () => {
   const { user, signOut } = useAuth();
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
@@ -16,10 +17,11 @@ const Hero = () => {
             </div>
             
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
-                Your Path to
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Growth</span>
-              </h1>
+              <img 
+                src={titleImage} 
+                alt="Finding the Way Forward - Your path to growth and support" 
+                className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto object-contain"
+              />
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
                 Get instant, compassionate support with AI-powered guidance for your personal growth journey. 
                 Available 24/7 when you need it most.
