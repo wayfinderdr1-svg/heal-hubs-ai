@@ -8,15 +8,15 @@ const Hero = () => {
   const { user, signOut } = useAuth();
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
-        <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8">
+        <div className="flex flex-col items-start text-left space-y-4 sm:space-y-5">
           {/* Logo and Title Section */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-2">
             <div className="relative flex items-start justify-start">
               <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
               <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-24 h-24 sm:w-32 sm:h-32 object-contain" />
             </div>
             
-            <div className="space-y-2 sm:space-y-3">
+            <div className="space-y-1 sm:space-y-2">
               <img 
                 src={titleImage} 
                 alt="Finding the Way Forward - Your path to growth and support" 
