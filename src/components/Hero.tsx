@@ -3,7 +3,7 @@ import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
-import titleImage from "@/assets/title-finding-the-way-forward-gold.png";
+import titleImage from "@/assets/title-finding-the-way-forward-blue.png";
 const Hero = () => {
   const { user, signOut } = useAuth();
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
