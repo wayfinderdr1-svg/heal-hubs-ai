@@ -20,7 +20,7 @@ const Hero = () => {
               <img 
                 src={titleImage} 
                 alt="Finding the Way Forward - Your path to growth and support" 
-                className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto object-contain"
+                className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain"
               />
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
                 Get instant, compassionate support with AI-powered guidance for your personal growth journey. 
