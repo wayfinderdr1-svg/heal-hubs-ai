@@ -3,7 +3,7 @@ import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
-import titleImageSilver from "@/assets/title-image-silver-4.png";
+import titleImageSilver from "@/assets/finding-your-way-forward.png";
 
 
 const Hero = () => {
