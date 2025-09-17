@@ -22,7 +22,7 @@ const Hero = () => {
             <div className="flex flex-col justify-start">
               <h1 style={{
               fontFamily: 'Brush Script MT'
-            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-italic text-foreground">Finding your way forward</h1>
+            }} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-italic text-foreground">Finding your way forward....</h1>
               {/*<img 
                 src={titleImage} 
                 alt="Finding the Way Forward - Your path to growth and support" 
