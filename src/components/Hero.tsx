@@ -3,8 +3,8 @@ import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import wayfinderLogo from "@/assets/wayfinder-logo.svg";
-import titleImageGold from "@/assets/title-image-gold.png";
-import titleImageSilver from "@/assets/title-image-silver.png";
+import titleImageSilver from "@/assets/title-image-silver-light.png";
+
 
 const Hero = () => {
   const { user, signOut } = useAuth();
@@ -20,7 +20,7 @@ const Hero = () => {
             
             <div className="flex flex-col justify-start">
               <img 
-                src={titleImageGold} 
+                src={titleImageSilver} 
                 alt="Find Your Way Forward - Your path to growth and support" 
                 className="w-48 h-24 sm:w-64 sm:h-32 object-contain"
               />
