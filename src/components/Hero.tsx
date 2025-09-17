@@ -19,12 +19,12 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col justify-start">
-              <H1>Finding your way forward</H1>
-              <!--<img 
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">Finding your way forward</h1>
+              {/*<img 
                 src={titleImage} 
                 alt="Finding the Way Forward - Your path to growth and support" 
                 className="w-40 h-20 sm:w-48 sm:h-24 md:w-56 md:h-28 lg:w-64 lg:h-32 object-contain"
-              />-->
+              />*/}
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mt-2">
                 Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
               </p>
