@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import wayfinderLogo from "@/assets/wayfinder-logo-2.svg";
+import titleImage from "@/assets/title-image-2.png";
 
 
 const Hero = () => {
@@ -9,9 +11,24 @@ const Hero = () => {
   return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 bg-cyan-900">
         <div className="flex flex-col items-start text-left space-y-4 sm:space-y-5">
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg">
-            Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
-          </p>
+          {/* Logo and Title Section */}
+          <div className="flex items-start gap-4 mb-2">
+            <div className="relative flex-shrink-0">
+              <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+              <img src={wayfinderLogo} alt="WayFinder compass logo representing your path to growth" className="relative w-24 h-24 sm:w-32 sm:h-32 object-contain" />
+            </div>
+            
+            <div className="flex flex-col justify-start">
+              <img 
+                src={titleImage} 
+                alt="Finding the Way Forward - Your path to growth and support" 
+                className="w-48 h-24 sm:w-64 sm:h-32 object-contain"
+              />
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg mt-2">
+                Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
+              </p>
+            </div>
+          </div>
 
           <Link to="/auth" className="block">
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-4 border border-primary/20 max-w-md hover:bg-gradient-to-r hover:from-primary/15 hover:to-accent/15 transition-colors cursor-pointer">
