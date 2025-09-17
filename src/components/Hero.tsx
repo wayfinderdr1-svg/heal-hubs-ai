@@ -18,11 +18,6 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col justify-start">
-              <img 
-                src={titleImageSilver} 
-                alt="Finding Your Way Forward - Your path to growth and support" 
-                className="w-48 h-24 sm:w-64 sm:h-32 object-contain"
-              />
               <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-sm sm:max-w-md lg:max-w-lg mt-2">
                 Get instant, compassionate support with AI-powered guidance for growing stronger everyday together!!
               </p>
