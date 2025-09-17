@@ -9,7 +9,7 @@ const Hero = () => {
     user,
     signOut
   } = useAuth();
-  return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh]">
+  return <section className="flex items-center bg-gradient-to-br from-calm to-supportive min-h-[70vh] sm:min-h-[75vh] md:min-h-[80vh] lg:min-h-[85vh] bg-cyan-900">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-8 sm:py-10 md:py-12 lg:py-16 bg-cyan-900">
         <div className="flex flex-col items-start text-left space-y-4 sm:space-y-5 md:space-y-6">
           {/* Logo and Title Section */}
