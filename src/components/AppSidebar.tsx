@@ -79,20 +79,20 @@ export function AppSidebar() {
       setOpen(false);
     }
   };
-  return <Sidebar className={isCollapsed ? "w-14" : "w-64"} collapsible="icon">
-      <SidebarContent className="bg-sky-950">
+  return <Sidebar className={isCollapsed ? "w-12 md:w-14" : "w-56 md:w-64 lg:w-72"} collapsible="icon">
+      <SidebarContent className="bg-sky-950 p-1 md:p-2">
         {/* Main Navigation */}
         <SidebarGroup>
-          <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+          <SidebarGroupLabel className={isCollapsed ? "sr-only" : "text-xs md:text-sm"}>
             Navigation
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               {publicItems.map(item => <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className="h-9 md:h-10">
                     <NavLink to={item.url} end className={getNavCls} onClick={handleMenuClick}>
-                      <item.icon className="h-4 w-4" />
-                      {!isCollapsed && <span>{item.title}</span>}
+                      <item.icon className="h-4 w-4 md:h-5 md:w-5" />
+                      {!isCollapsed && <span className="text-sm md:text-base">{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>)}
@@ -102,16 +102,16 @@ export function AppSidebar() {
 
         {/* Support Tools - Only show if authenticated */}
         {user && <SidebarGroup>
-            <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+            <SidebarGroupLabel className={isCollapsed ? "sr-only" : "text-xs md:text-sm"}>
               Support Tools
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu>
+              <SidebarMenu className="space-y-1">
                 {authenticatedItems.map(item => <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton asChild className="h-9 md:h-10">
                       <NavLink to={item.url} end className={getNavCls} onClick={handleMenuClick}>
-                        <item.icon className="h-4 w-4" />
-                        {!isCollapsed && <span>{item.title}</span>}
+                        <item.icon className="h-4 w-4 md:h-5 md:w-5" />
+                        {!isCollapsed && <span className="text-sm md:text-base">{item.title}</span>}
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>)}
@@ -121,24 +121,24 @@ export function AppSidebar() {
 
         {/* Account */}
         <SidebarGroup>
-          <SidebarGroupLabel className={isCollapsed ? "sr-only" : ""}>
+          <SidebarGroupLabel className={isCollapsed ? "sr-only" : "text-xs md:text-sm"}>
             Account
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
+                <SidebarMenuButton asChild className="h-9 md:h-10">
                   <NavLink to="/auth" className={getNavCls} onClick={handleMenuClick}>
-                    {user ? <User className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
-                    {!isCollapsed && <span>{user ? "Profile" : "Sign In"}</span>}
+                    {user ? <User className="h-4 w-4 md:h-5 md:w-5" /> : <LogIn className="h-4 w-4 md:h-5 md:w-5" />}
+                    {!isCollapsed && <span className="text-sm md:text-base">{user ? "Profile" : "Sign In"}</span>}
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               {user && (
                 <SidebarMenuItem>
-                  <SidebarMenuButton onClick={() => { signOut(); handleMenuClick(); }}>
-                    <LogOut className="h-4 w-4" />
-                    {!isCollapsed && <span>Sign Out</span>}
+                  <SidebarMenuButton onClick={() => { signOut(); handleMenuClick(); }} className="h-9 md:h-10">
+                    <LogOut className="h-4 w-4 md:h-5 md:w-5" />
+                    {!isCollapsed && <span className="text-sm md:text-base">Sign Out</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               )}
