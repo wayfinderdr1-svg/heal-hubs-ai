@@ -15,26 +15,26 @@ const Support = () => {
       <main className="pb-8">
         <div className="container mx-auto px-4 bg-cyan-900">
           {/* Hero Section */}
-          <section className="text-center mb-12 relative">
-            <div className="relative rounded-2xl overflow-hidden mb-8">
+          <section className="text-center mb-8 sm:mb-12 relative">
+            <div className="relative rounded-lg sm:rounded-2xl overflow-hidden mb-6 sm:mb-8">
               <img 
                 src={heroSupport} 
                 alt="Support and helping hands"
-                className="w-full h-64 md:h-80 object-cover"
+                className="w-full h-48 sm:h-56 md:h-72 lg:h-80 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-background/30" />
+              <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-6">
+                <div className="max-w-4xl mx-auto w-full text-center">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 px-2">
                     Support & Resources
                   </h1>
-                  <p className="text-xl md:text-2xl text-white/90 mb-6">
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-3 sm:mb-4 md:mb-6 px-2">
                     We're here to help you every step of the way. Find the support you need, when you need it.
                   </p>
-                  <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-4 backdrop-blur-sm">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <AlertCircle className="h-4 w-4 text-red-300" />
-                      <p className="text-red-100 font-medium text-sm md:text-base">
+                  <div className="bg-red-500/20 border border-red-500/30 rounded-md sm:rounded-lg p-2 sm:p-3 md:p-4 backdrop-blur-sm mx-2">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+                      <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-red-300 flex-shrink-0" />
+                      <p className="text-red-100 font-medium text-xs sm:text-sm md:text-base text-center">
                         If you're experiencing a mental health emergency, please call 911 or contact your local emergency services immediately.
                       </p>
                     </div>
