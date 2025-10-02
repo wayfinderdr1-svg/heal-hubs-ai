@@ -20,7 +20,7 @@ const Support = () => {
               <img 
                 src={heroSupport} 
                 alt="Support and helping hands"
-                className="w-full h-48 sm:h-56 md:h-72 lg:h-80 object-cover"
+                className="w-full h-64 sm:h-56 md:h-72 lg:h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-background/30" />
               <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-6">
