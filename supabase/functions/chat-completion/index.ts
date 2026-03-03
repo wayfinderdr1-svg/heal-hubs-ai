@@ -76,7 +76,26 @@ serve(async (req) => {
     if (!openaiResponse.ok) {
       const errorText = await openaiResponse.text()
       console.error('OpenAI API error:', openaiResponse.status, errorText)
-      throw new Error(`OpenAI API error: ${openaiResponse.status} - ${errorText}`)
+
+      let details = 'Failed to generate a response from AI provider.'
+      try {
+        const parsed = JSON.parse(errorText)
+        details = parsed?.error?.message || details
+      } catch {
+        if (errorText) details = errorText
+      }
+
+      const status = openaiResponse.status === 429 ? 429 : openaiResponse.status
+
+      return new Response(
+        JSON.stringify({
+          error: 'AI provider error',
+          details,
+          code: status === 429 ? 'insufficient_quota_or_rate_limited' : 'provider_error',
+          timestamp: new Date().toISOString(),
+        }),
+        { status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
     }
 
     const data = await openaiResponse.json()
@@ -93,7 +112,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         error: 'Internal server error', 
-        details: error.message,
+        details: error instanceof Error ? error.message : 'Unknown error',
         timestamp: new Date().toISOString()
       }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

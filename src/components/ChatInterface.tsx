@@ -80,7 +80,23 @@ const ChatInterface = () => {
       });
       if (error) {
         console.error('Supabase function error:', error);
-        throw error;
+        const response = (error as { context?: Response }).context;
+        const status = response?.status;
+        let payload: {
+          error?: string;
+          details?: string;
+        } | null = null;
+        if (response) {
+          payload = await response.json().catch(() => null);
+        }
+        const baseMessage = payload?.details || payload?.error || "I'm having trouble connecting right now.";
+        const friendlyMessage = status === 429
+          ? "The AI service is out of quota or rate-limited right now. Please try again later."
+          : status === 402
+            ? "The AI service needs billing credits before this can continue."
+            : baseMessage;
+
+        throw new Error(friendlyMessage);
       }
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -91,12 +107,15 @@ const ChatInterface = () => {
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('Error getting AI response:', error);
-      toast.error("I'm having trouble connecting right now. Please try again in a moment.");
+      const fallbackText = error instanceof Error && error.message
+        ? error.message
+        : "I'm having trouble connecting right now. Please try again in a moment.";
+      toast.error(fallbackText);
 
       // Add fallback message
       const fallbackMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "I apologize, but I'm experiencing some technical difficulties right now. Please try your message again in a moment. If this persists, our support team is available to help.",
+        content: `${fallbackText} If this continues, please contact support.`,
         sender: 'ai',
         timestamp: new Date()
       };
