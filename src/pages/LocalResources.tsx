@@ -19,8 +19,10 @@ const LocalResources = () => {
   const [isLoadingResources, setIsLoadingResources] = useState(false);
 
   useEffect(() => {
-    // Load default resources on component mount
-    loadResourcesForZip("default");
+    // Always load Greenville, SC resources
+    loadResourcesForZip("29607");
+    setZipCode("29607");
+    setLocation("Greenville, SC 29607");
   }, []);
 
   const reverseGeocode = async (lat: number, lon: number): Promise<string> => {
@@ -214,35 +216,10 @@ const LocalResources = () => {
             {/* Location and Search */}
             <div className="max-w-2xl mx-auto space-y-4">
               <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
-                <Button
-                  onClick={getLocation}
-                  disabled={isLoadingLocation}
-                  variant="outline"
-                  className="gap-2"
-                >
+                <span className="text-sm text-muted-foreground flex items-center gap-1">
                   <MapPin className="w-4 h-4" />
-                  {isLoadingLocation ? "Getting Location..." : "Use My Location"}
-                </Button>
-                {/* Hidden zip code search
-                <span className="text-sm text-muted-foreground">or</span>
-                <form onSubmit={handleZipSubmit} className="flex items-center gap-2">
-                  <Input
-                    placeholder="Enter zip code (e.g. 10001)"
-                    value={zipSearchQuery}
-                    onChange={(e) => setZipSearchQuery(e.target.value.replace(/\D/g, '').slice(0, 5))}
-                    className="w-48"
-                    maxLength={5}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={!zipSearchQuery || zipSearchQuery.length !== 5}
-                    variant="default"
-                    size="sm"
-                  >
-                    Search
-                  </Button>
-                </form>
-                */}
+                  Greenville, SC 29607
+                </span>
               </div>
               
               {location && (
