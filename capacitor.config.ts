@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.healhubs.ai',
+  appId: 'app.lovable.653643c1dee64a46a82e64c97d2a2726',
   appName: 'heal-hubs-ai',
   webDir: 'dist',
   server: {
