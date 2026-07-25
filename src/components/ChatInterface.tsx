@@ -82,14 +82,11 @@ const ChatInterface = () => {
         console.error('Supabase function error:', error);
         const response = (error as { context?: Response }).context;
         const status = response?.status;
-        let payload: {
-          error?: string;
-          details?: string;
-        } | null = null;
-        if (response) {
-          payload = await response.json().catch(() => null);
+        let payload: { error?: string; details?: string } | null = null;
+        if (response && typeof (response as Response).json === 'function') {
+          payload = await (response as Response).clone().json().catch(() => null);
         }
-        const baseMessage = payload?.details || payload?.error || "I'm having trouble connecting right now.";
+        const baseMessage = payload?.details || payload?.error || (error as Error).message || "I'm having trouble connecting right now.";
         const friendlyMessage = status === 429
           ? "The AI service is out of quota or rate-limited right now. Please try again later."
           : status === 402
