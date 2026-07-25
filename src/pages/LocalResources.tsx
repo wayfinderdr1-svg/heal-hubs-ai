@@ -54,9 +54,11 @@ const LocalResources = () => {
       setResources(resourceList);
     } catch (error) {
       console.error("Error loading resources:", error);
-      // Fallback to default resources
-      const defaultResources = await ResourceService.getResourcesByZip("default");
-      setResources(defaultResources);
+      // Always fallback to Greenville, SC 29607 resources
+      const greenvilleResources = await ResourceService.getResourcesByZip("29607");
+      setResources(greenvilleResources);
+      setZipCode("29607");
+      setLocation("Greenville, SC 29607");
     } finally {
       setIsLoadingResources(false);
     }

@@ -14,8 +14,8 @@ export class ResourceService {
       console.log(`Found ${resources.length} resources for zip code ${zipCode}`);
       return [...resources]; // Clone to avoid mutation
     } else {
-      console.log(`No specific resources found for zip ${zipCode}, using default resources`);
-      return [...resourcesByZip["default"]];
+      console.log(`No specific resources found for zip ${zipCode}, using Greenville, SC 29607 resources`);
+      return [...resourcesByZip["29607"]];
     }
   }
 
