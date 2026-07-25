@@ -54,9 +54,11 @@ const LocalResources = () => {
       setResources(resourceList);
     } catch (error) {
       console.error("Error loading resources:", error);
-      // Fallback to default resources
-      const defaultResources = await ResourceService.getResourcesByZip("default");
-      setResources(defaultResources);
+      // Always fallback to Greenville, SC 29607 resources
+      const greenvilleResources = await ResourceService.getResourcesByZip("29607");
+      setResources(greenvilleResources);
+      setZipCode("29607");
+      setLocation("Greenville, SC 29607");
     } finally {
       setIsLoadingResources(false);
     }
@@ -79,36 +81,25 @@ const LocalResources = () => {
               loadResourcesForZip(zip);
               console.log(`Successfully detected zip code: ${zip}`);
             } else {
-              setLocation("Unable to determine zip code");
-              setZipCode("");
-              console.log("Failed to extract zip code from location data");
+              console.log("Failed to extract zip code from location data; falling back to Greenville, SC 29607");
+              setLocation("Greenville, SC 29607");
+              setZipCode("29607");
+              loadResourcesForZip("29607");
             }
           } catch (error) {
-            console.error("Error processing location:", error);
-            setLocation("Error processing location");
-            setZipCode("");
+            console.error("Error processing location; falling back to Greenville, SC 29607:", error);
+            setLocation("Greenville, SC 29607");
+            setZipCode("29607");
+            loadResourcesForZip("29607");
           }
           
           setIsLoadingLocation(false);
         },
         (error) => {
-          console.error("Error getting location:", error);
-          let errorMessage = "Location access denied";
-          
-          switch (error.code) {
-            case error.PERMISSION_DENIED:
-              errorMessage = "Location access denied. Please enable location services.";
-              break;
-            case error.POSITION_UNAVAILABLE:
-              errorMessage = "Location information unavailable.";
-              break;
-            case error.TIMEOUT:
-              errorMessage = "Location request timed out.";
-              break;
-          }
-          
-          setLocation(errorMessage);
-          setZipCode("");
+          console.error("Error getting location; falling back to Greenville, SC 29607:", error);
+          setLocation("Greenville, SC 29607");
+          setZipCode("29607");
+          loadResourcesForZip("29607");
           setIsLoadingLocation(false);
         },
         {
@@ -118,8 +109,10 @@ const LocalResources = () => {
         }
       );
     } else {
-      setLocation("Geolocation not supported by this browser");
-      setZipCode("");
+      console.log("Geolocation not supported; using Greenville, SC 29607");
+      setLocation("Greenville, SC 29607");
+      setZipCode("29607");
+      loadResourcesForZip("29607");
       setIsLoadingLocation(false);
     }
   };
