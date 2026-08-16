@@ -4,10 +4,7 @@ const config: CapacitorConfig = {
   appId: 'app.lovable.wayfinder',
   appName: 'heal-hubs-ai',
   webDir: 'dist',
-  server: {
-    url: 'https://653643c1-dee6-4a46-a82e-64c97d2a2726.lovableproject.com?forceHideBadge=true',
-    cleartext: true
-  },
+  // server block removed for App Store build — app is now standalone
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
